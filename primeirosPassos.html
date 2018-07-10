@@ -6,44 +6,41 @@ title: "Aprendizagem de Máquina (Essencial)"
 <h2>Conteúdo</h2>
 
 <ol>
-	<li><a href="#O-que-é-aprendizado-de-máquina">O que é Aprendizado de Máquina?</a>
-<ol>
-	<li><a href="#stats-am">AM ou Estatística?</a></li>
-	<li><a href="#Onde-A-M-está-sendo-usado">Onde se usa AM?</a></li>
-</ol>
-</li>
-	<li><a href="#introducao-am">Introdução ao Aprendizado de Máquina</a>
-<ol>
-	<li><a href="#am-tres-tipos">Os três tipos de aprendizado</a>
-<ol>
-	<li><a href="#am-supervisionado">Aprendizado supervisionado</a>
-<ol>
-	<li><a href="#am-semi-supervisionado">Aprendizado semi-supervisionado</a></li>
-</ol>
-</li>
-	<li><a href="#am-nao-supervisionado">Aprendizado não supervisionado</a></li>
-	<li><a href="#am-por-reforco">Aprendizado por reforço</a></li>
-</ol>
-</li>
-	<li><a href="#Capacidade-e-generalização">Capacidade e generalização</a>
-<ol>
-	<li><a href="#Teorema-NHAG">Teorema "Não há almoço grátis"</a></li>
-	<li><a href="#Super-e-sub-ajustamento">Sobre e sub ajustamento</a></li>
-	<li><a href="#Viés-e-variância">Viés e variância</a></li>
-	<li><a href="#Validação-cruzada">Validação cruzada</a></li>
-</ol>
-</li>
+	<li><a href="#O-que-é-aprendizagem-de-máquina">O que é Aprendizado de Máquina?</a>
+    	<ul>
+		<li><a href="#stats-am">Aprendizagem de Máquina ou Estatística?</a></li>
+		<li><a href="#Onde-A-M-está-sendo-usado">Onde se usa Aprendizagem de Máquina?</a>
+        </ul>
+	</li>
+	<li><a href="#introducao-am">Introdução a Aprendizagem de Máquina</a>
+		<ul>
+			<li><a href="#am-tres-tipos">Os três tipos de aprendizado</a>
+				<ul>
+	 				<li><a href="#am-supervisionado">Aprendizado supervisionado</a>
+                    	<ul style="list-style-type:disc">
+                    <li><a href="#am-semi-supervisionado">Aprendizado semi-supervisionado</a></li>
+                    	</ul>
+       				<li><a href="#am-nao-supervisionado">Aprendizado não supervisionado</a></li>
+            		<li><a href="#am-por-reforco">Aprendizado por reforço</a></li>
+				</ul>       		
+		</ul>
+	</li>
+		<li><a href="#Capacidade-e-generalização">Capacidade e generalização</a>
+		<ul>
+        	<li><a href="#Teorema-NHAG">Teorema "Não há almoço grátis"</a></li>
+			<li><a href="#Super-e-sub-ajustamento">Sobre e sub ajustamento</a></li>
+			<li><a href="#Viés-e-variância">Viés e variância</a></li>
+			<li><a href="#Validação-cruzada">Validação cruzada</a></li>
+        </ul>
 	<li><a href="#Ligações-Externas">Ligações Externas</a></li>
-</ol>
-</li>
-	<li><a href="#Aprendendo-AM-por-conta-própria">Aprendendo AM por conta própria</a>
-<ol>
-	<li><a href="#Uma-conversa-motivacional">Uma conversa motivacional com meus colegas de humanas</a></li>
-</ol>
+	<li><a href="#Aprendendo-AM-por-conta-própria">Estudando Aprendizagem de Máquina por conta própria</a>
+		<ul>
+	<li><a href="#Uma-conversa-motivacional">Uma conversa motivacional</a></li>
+		</ul>
 </li>
 </ol>
 
-<h3 id="O-que-é-aprendizado-de-máquina">1 - O que é Aprendizado de Máquina?</h3>
+<h3 id="O-que-é-aprendizagem-de-máquina">1 - O que é Aprendizagem de Máquina?</h3>
 <p>A maioria dos livros e artigos que conheço apresentam Aprendizado de Máquina (A.M.) como um sub-campo de inteligência artificial;
 	mais do que isso, de acordo com Goodfellow et al, "Aprendizado de Máquina é o único meio viável pelo qual é possível
 	construir sistemas que consigam operar em complicados ambientes reais". De minha parte, reconheço AM como um campo
@@ -73,7 +70,7 @@ title: "Aprendizagem de Máquina (Essencial)"
 	plano. Note que <strong>essa distinção nem sempre é válida</strong>, como por exemplo nos cenários em que não
 	há previsão a ser feita e o interesse principal é achar estrutura nos dados.</p>
 
-<h4 id="Onde-A-M-está-sendo-usado">1.2 - Onde se usa AM?</h4>
+<h4 id="Onde-A-M-está-sendo-usado">1.2 - Onde se usa Aprendizagem de Máuina?</h4>
 <p>Divido em dois os tipos gerais de tarefa em que a utilização de Aprendizado de Máquina é recomendada:</p>
 
 <ul>
@@ -115,7 +112,7 @@ title: "Aprendizagem de Máquina (Essencial)"
 	outros experimentos</a> que você pode inclusive ajudar participando.</p>
 
 
-<h2 id="introducao-am">2 - Introdução ao Aprendizado de Máquina</h2>
+<h2 id="introducao-am">2 - Introdução a Aprendizagem de Máquina</h2>
 <p>Aprendizado de Máquina pode ser visto como um <strong>problema estatístico e de otimização</strong>. Nós normalmente estamos
 	interessados em mapear um fenômeno por meio de uma função. Essa função é o que chamamos de modelo: uma fórmula que
 	representa da melhor forma possível como funciona o fenômeno que nos interessa. Mas o que é essa "melhor forma possível"?
@@ -221,7 +218,7 @@ title: "Aprendizagem de Máquina (Essencial)"
 	<li>A <a href="https://www.youtube.com/playlist?list=PLnnr1O8OWc6abwwtocnvpRD5mFVUglbZU">introdução do curso</a> da Universidade de Stanford sobre Aprendizado de Máquina no Coursera, lecionado pelo professor Ng.</li>
 	<li>Essa <a href="https://www.youtube.com/watch?v=PlhFWT7vAEw">primeira aula incrível</a>, gravada no <a href="https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/">curso de Aprendizado de Máquina da universidade de Oxford</a> (2014-2015), lecionado pelo professor Nando de Freitas.</li>
 </ul>
-<h2 id="Aprendendo-AM-por-conta-própria">3 - Aprendendo AM por conta própria.</h2>
+<h2 id="Aprendendo-AM-por-conta-própria">3 - Estudando Aprendizagem de Máquina por conta própria</h2>
 <p>Se você considera aprender AM saiba que não será um caminho fácil - e talvez por isso que profissionais da área são tão escassos. Antes de tudo, é preciso saber inglês, já que a maioria do conteúdo é nessa língua. Em segundo lugar, terá que cobrir alguns pré-requisitos matemáticos e computacionais. É fundamental ter um sólido conhecimento em cálculo e uma boa base em álgebra linear. Felizmente o MIT tem cursos gravados excelentes nesses assuntos (<a href="https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/">cálculo univariado</a>, <a href="https://ocw.mit.edu/courses/mathematics/18-02-multivariable-calculus-fall-2007/">cálculo multivariado</a>, <a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">introdução à álgebra linear</a>), e tudo de graça. Em seguida, é preciso se familiarizar com o básico de estatística e probabilidade. Para isso, eu recomendo os cursos abertos da Udacity sobre estatística <a href="https://br.udacity.com/course/intro-to-descriptive-statistics--ud827/">descritiva</a> e<a href="https://br.udacity.com/course/intro-to-inferential-statistics--ud201/"> inferencial</a>. Depois de tudo isso, é preciso se familiarizar com o básico de ciência da computação. Há muitas formas de fazer isso e eu sugiro que pesquise qual lhe será mais adequada. Da minha parte, preferi aprender ciência da computação tendo Python como minha principal linguagem. Para isso, alguns links podem ser úteis: [<a href="https://br.udacity.com/course/intro-to-computer-science--cs101/">1</a>], [<a href="https://br.udacity.com/course/programming-foundations-with-python--ud036/">2</a>], [<a href="https://pythonprogramming.net/">3</a>].</p>
 <p>Tendo os pré-requisitos acima, resta só escolher onde aprender AM. A minha sugestão é fazer todos os cursos que vou sugerir, mesmo que o conteúdo seja redundante em alguns aspectos. A verdade é que AM é difícil o suficiente para que rever o mesmo conteúdo várias vezes se torne quase uma necessidade. Segue a lista de cursos que recomendo:</p>
 
@@ -245,7 +242,7 @@ title: "Aprendizagem de Máquina (Essencial)"
 </ul>
 <p>Quando comecei a aprender AM, não sabia ao certo o que estudar e por conta disso acabei gastando meu tempo com coisas desnecessárias, mesmo que muito interessantes (por exemplo aprendendo JavaScript orientado a objetos). Assim, creio que seja importante também <strong>listar o que você não precisa aprender</strong> (provavelmente alguém pode ficar irritado com o que vêm a seguir, mas essas são as minhas recomendações, segundo o que funcionou comigo). Em primeiro lugar, saiba que é estritamente necessário apenas ter conhecimento básico em programação. Com um curso introdutório em ciência da computação, você já pode pular direto à parte de Aprendizado de Máquina. Não é preciso ter conhecimento de nada relacionado a redes. Não é necessário aprender ferramentas de front-end, como HTML, CSS e JavaScript. Na verdade, você sequer precisa saber o que front-end significa. É útil saber programação orientada a objetos, embora não seja estritamente necessário. Não é necessário aprender C ou C++, mas talvez isso seja útil dependendo de onde você vai trabalhar.</p>
 
-<h3 id="Uma-conversa-motivacional">3.1 - Uma conversa motivacional com meus colegas de Humanas</h3>
+<h3 id="Uma-conversa-motivacional">3.1 - Uma conversa motivacional</h3>
 <p>Acredito que para a maioria de vocês, AM pode parecer intimidador pelas grandes exigências em conhecimento matemático e de programação. Meu objetivo aqui é convencer vocês de que essa relutância é infundada. Em primeiro lugar, Aprendizado de Máquina <strong>não demanda muito conhecimento em programação</strong>. Pelo menos não se você pretende apenas utilizar as ferramentas desse campo, como é o meu caso (se o seu interesse for empurrar a barreira do conhecimento em AM adiante, então creio que as coisas sejam diferentes). A maioria dos algoritmos já está implementada para que nós praticantes apenas precisemos nos preocupar com o desing final, que pode ser feito em poucas linhas de código; com problemas mais simples, às vezes não é preciso nem dez linhas! Eu mesmo só sei o básico de programação e já consigo fazer algumas coisas bem interessantes com redes neurais convolucionais e máquinas de suporte vetorial.</p>
 <p>A parte matemática, sim, demandará mais de vocês, principalmente se não estiverem acostumados, como foi meu caso. Até pedir transferência para Economia, eu cursava Relações Internacionais e uma das minhas maiores felicidade de calouro era não ter mais que lidar com matemática. No entanto, percebi quão interessante ela era a medida que me permitia juntar teoria com utilidade prática de forma tão direta. Então peguei algumas matérias da matemática como optativas e vi alguns cursos online do MIT para tirar o atraso. Uma das coisas que descobri nas minhas aulas é que alunos das exatas, como físicos, engenheiros e estatísticos, são tão ruins em matemática quanto nós de humanas; a diferença é que eles aceitam a dificuldade (as vezes porque não têm opção), enquanto nós de humanas preferimos fugir dela.</p>
 <p>Se o seu curso de humanas foi como Relações Internacionais foi para mim, talvez você tenha muitas matérias teóricas e não consegue ver onde essa teoria possa ser aplicada. Então acredito que sentirá a mesma satisfação que eu ao descobrir uma campo científico como AM, em que praticamente toda teoria tem dezenas de aplicações práticas. Você também vai adorar conseguir enxergar o conhecimento moldando a realidade a sua volta e ler (e entender) sobre avanços que se desenvolvem em período de semanas e que mais parecem revoluções. Assim, o que no início parecia quase impossível de tão complicado, acaba se tornando tão agradável que até não parece mais estudo.</p>
