@@ -13,10 +13,6 @@ people:
   social:
     - title: twitter
       url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
@@ -24,6 +20,25 @@ social:
     url: https://twitter.com/theavila
   - title: github
     url: https://github.com/theavila
+  - title: linkedin
+    url: https://www.linkedin.com/in/theavila
+  - title: bitbucket
+    url: https://bitbucket.org/theavila/
+  - title: graduation-cap
+    url: https://scholar.google.pt/citations?user=3bMNkzYAAAAJ&hl=pt-PT
+
+# Postal address (add as many lines as necessary)
+address:
+  - line: Évora, PT
+
+footer:
+  copyright: Me. Ricardo Ávila
+  location: Reino de Deus
+  social: Passageiro nesse mundo
+  credits: Credits
+
+# Credits content
+credits: 'Site atualizado semanalmente. Atrasos podem ocorrer.'
 
 # Build settings
 markdown: kramdown
