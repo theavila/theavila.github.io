@@ -1,14 +1,14 @@
-url: https://matheusfacure.github.io/
+url: https://theavila.github.io/
 
 # Site settings
-title: "{Quinhentos: Nove}"
-email: matheusfacure01@gmail.com
-description: "Explorando Aprendizado de Máquina nas Ciências Humanas e Sociais"
+title: "{TheAvila}"
+email: ricardo.lims@gmail.com
+description: "Aprendizagem de Máquina"
 
 
 # Team names, titles and social links
 people:
-- name: Matheus Facure
+- name: Ricardo Ávila
   pic: 1
   social:
     - title: twitter
@@ -20,13 +20,10 @@ people:
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: linkedin
-    url: http://linkedin.com/in/matheus-facure-7b0099117
+  - title: twitter
+    url: https://twitter.com/theavila
   - title: github
-    url: https://github.com/matheusfacure
-  - title: facebook 
-    url: https://www.facebook.com/matheus.facure.9
-
+    url: https://github.com/theavila
 
 # Build settings
 markdown: kramdown
