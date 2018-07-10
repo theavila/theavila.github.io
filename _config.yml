@@ -28,6 +28,8 @@ social:
     url: https://scholar.google.pt/citations?user=3bMNkzYAAAAJ&hl=pt-PT
   - title: medium
     url: https://medium.com/@theavila
+  - name: stack-overflow
+    url: https://stackoverflow.com/users/10060380/theavila
 
 # Postal address (add as many lines as necessary)
 address:
