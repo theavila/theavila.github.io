@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+{% include head.html %}
+{% if jekyll.environment == 'production' %}
+	{% include analytics.html %}
+{% endif %}
+<body>
+
+    {% include header.html %}
+
+    <!-- Main Content -->
+	{{ content }}
+
+    
+    {% include footer.html %}
+    {% include js.html %}
+    
+</body>
+
+</html>
