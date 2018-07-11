@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: Análise de Consumidores com Aprendizagem de Máquina Não Supervisionado
-subtitle: "Entendo o perfil do cliente"
+subtitle: "Entendendo o perfil do cliente"
 date: 2018-07-11
 tags: [Post]
 author: "Ricardo Ávila"
