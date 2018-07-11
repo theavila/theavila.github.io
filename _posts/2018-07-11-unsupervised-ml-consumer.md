@@ -144,8 +144,6 @@ Após toda essa análise, é importante mostrar como a informação adquirida no
 
 # Referências <a name="ref"></a>
 
-Este trabalho é uma adaptação do terceiro projeto do [Nanodegree Engenheiro de Machine Learning da Udacity](https://br.udacity.com/course/machine-learning-engineer-nanodegree--nd009/?gclid=Cj0KEQjw9r7JBRCj37PlltTskaMBEiQAKTzTfFcElVRXhgn0LpGDkFgyBmi0C71whULjIq3rpRANFusaAtlH8P8HAQ). Se você está fazendo esse Nanodegree, saiba que uma série de sanções lhe podem ser aplicadas por submeter trabalho que não é seu. Assim, eu recomendo fortemente tente antes a sua própria implementação antes de olhar a minha.
+Este trabalho é uma adaptação do terceiro projeto do [Nanodegree Engenheiro de Machine Learning da Udacity](https://br.udacity.com/course/machine-learning-engineer-nanodegree--nd009/?gclid=Cj0KEQjw9r7JBRCj37PlltTskaMBEiQAKTzTfFcElVRXhgn0LpGDkFgyBmi0C71whULjIq3rpRANFusaAtlH8P8HAQ).
 
-Você pode conferir a implementação completa do projeto (em inglês) no [meu GitHub](https://github.com/matheusfacure/Tutoriais-de-AM/tree/master/Exemplos).
-
-
+Você pode conferir a implementação completa do projeto em (https://github.com/matheusfacure/Tutoriais-de-AM/tree/master/Exemplos).
