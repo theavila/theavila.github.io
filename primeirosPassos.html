@@ -4,7 +4,7 @@ title: "Aprendizagem de Máquina"
 ---
 <h2>1 - O que é Aprendizagem de Máquina?</h2>
 <p>A aprendizagem de máquina (<i>machine learning</i>) é uma mecanismo poderoso para cálculo de previsões e sugestões, utilizando a análise de dados. Não é necessariamente preciso criar novos algoritmos, mas é essencial entender e dominar os algoritmos mais comuns, sejam eles utilizando método de aprendizado supervisionados ou não supervisionados. Alguns exemplos são: análise de componentes principais (PCA), redes neurais, máquinas de suporte vetorial (SVM) e algoritmo de <i>cluster</i> k-means (KNN). É muito importante conhecer a teoria e os detalhes de implementação por trás desses algoritmos, além de conhecer os prós e contras, entendendo a aplicabilidade de cada um.</p>
-
+<br>
 <h3>1.1 - Aprendizagem Supervisionada</h3>
 <p>A aprendizagem supervisionada é útilizada quando o conjunto de dados possui rótulos que classifica cada instância utilizada. Esse rótulo pode ser tanto um valor numérico quanto uma categoria ou classe. Esse método de aprendizagem consiste em encontrar um modelo que seja capaz de identificar um padrão utilizando um conjunto de amostras de entrada. De posse do modelo, o próximo passo é avaliar a probabilidade de que uma instância obtenha desempenho específico em um conjunto de amostras diferente.
 Resumindo, na aprendizagem supervisionada existe o treino e o resultado esperado para cada exemplo.
@@ -20,7 +20,7 @@ Exemplo: conjunto de dados de tweets marcados como positivos, negativos ou neutr
 <li>Redes neurais</li>
 <li>M&aacute;quinas de suporte vetorial (SVM)</li>
 </ul>
-
+<br>
 <h3>1.2 - Aprendizagem Não Supervisionada</h3>
 <p>Nem sempre o objetivo é prever o valor de uma propriedade específica. Muitas vezes o objetivo é descobrir as relações ocultas dentro de
 um determinado conjunto de dados. Um exemplo disso seria o agrupamento (<i>cluster</i>) de objetos que são similares uns aos outros (de acordo com algum
@@ -35,7 +35,8 @@ Resumindo, na aprendizagem não-supervisionada buscamos extrair informação rel
 <li>Decomposição em valores singulares (SVD)</li>
 <li>Análise de componentes independentes (ICA)</li>
 </ul>
-
+<br>
+<br>
 <h3>2 - Avaliação do Modelo de Classificação</h3>
 <p>A avaliação do sistema de aprendizagem de máquina utiliza as suas duas etapas principais (treinamento e teste) para verificar o desempenho do modelo. Na fase de treinamento, o algoritmo de aprendizagem de máquina constrói indutivamente um modelo do problema com base nos dados de treinamento. De posse desse modelo, o algoritmo produz saídas que provavelmente correspondem às entradas atuais na fase de teste. Essas saídas devem ser passar por um processo de validação para verificar a adequação do sistema de aprendizado. A avaliação do desempenho da classificação consiste em considerar uma das classes de saída como a classe positiva e definir:</p>
 <ul>
@@ -45,5 +46,9 @@ Resumindo, na aprendizagem não-supervisionada buscamos extrair informação rel
 <li>falsos negativos – nº de amostras incorretamente rotuladas como não na classe positiva</li>
 </ul>
 <p>As saídas destes modelos, conforme a Tabela 1, produz a Matriz de Confusão, que indica a quantidade de instâncias foi classificada corretamente e incorretamente para cada classe do problema. Desse modo, verificamos a quantidade de acertos na classificação, falsos positivos e falsos negativos.</p>
-<img src="/img/tabela1.png" alt=""/>
+<p style="text-align: center;"><strong>Tabela 1 </strong>- Matriz de Confus&atilde;o</p>
+<p style="text-align: center;"><img src="/img/tabela1.png" alt="Matriz de Confus&atilde;o" width="500" height="74" /></p>
+<br>
+<br>
+
 
