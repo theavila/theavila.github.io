@@ -3,10 +3,10 @@ layout: page
 title: "Primeiros Passos"
 ---
 <h2>1 - O que é Aprendizagem de Máquina?</h2>
-<p>A aprendizagem de máquina (<i>machine learning</i>) é uma mecanismo poderoso para cálculo de previsões e sugestões, utilizando a análise de dados. Não é necessariamente preciso criar novos algoritmos, mas é essencial entender e dominar os algoritmos mais comuns, sejam eles utilizando método de aprendizado supervisionados ou não supervisionados. Alguns exemplos são: análise de componentes principais (PCA), redes neurais, máquinas de suporte vetorial (SVM) e algoritmo de <i>cluster</i> k-means (KNN). É muito importante conhecer a teoria e os detalhes de implementação por trás desses algoritmos, além de conhecer os prós e contras, entendendo a aplicabilidade de cada um.</p>
+<p>A aprendizagem de máquina (<i>machine learning</i>) é uma mecanismo poderoso para cálculo de previsões e sugestões, utilizando a análise de dados. Não é necessariamente preciso criar novos algoritmos, mas é <strong>essencial</strong> entender e dominar os algoritmos mais comuns, sejam eles utilizando método de aprendizado <strong>supervisionados</strong> ou <strong>não supervisionados</strong>. Alguns exemplos são: análise de componentes principais (PCA), redes neurais, máquinas de suporte vetorial (SVM) e algoritmo de <i>cluster</i> k-means (KNN). É muito importante conhecer a teoria e os detalhes de implementação por trás desses algoritmos, além de conhecer os prós e contras, entendendo a aplicabilidade de cada um.</p>
 
 <h3>1.1 - Aprendizagem Supervisionada</h3>
-<p>A aprendizagem supervisionada é útilizada quando o conjunto de dados possui rótulos que classifica cada instância utilizada. Esse rótulo pode ser tanto um valor numérico quanto uma categoria ou classe. Esse método de aprendizagem consiste em encontrar um modelo que seja capaz de identificar um padrão utilizando um conjunto de amostras de entrada. De posse do modelo, o próximo passo é avaliar a probabilidade de que uma instância obtenha desempenho específico em um conjunto de amostras diferente.
+<p>A aprendizagem supervisionada é útilizada quando o conjunto de dados possui rótulos que classifica cada instância utilizada. Esse rótulo pode ser tanto um valor numérico quanto uma categoria ou classe. Esse método de aprendizagem consiste em encontrar um <strong>modelo</strong> que seja capaz de identificar um padrão utilizando um conjunto de amostras de entrada. De posse do modelo, o próximo passo é avaliar a <strong>probabilidade</strong> de que uma instância obtenha desempenho específico em um conjunto de amostras diferente.
 Resumindo, na aprendizagem supervisionada existe o treino e o resultado esperado para cada exemplo.
 Exemplo: conjunto de dados de tweets marcados como positivos, negativos ou neutros. De posse desse conjunto de dados de tweets
 é possível criar um modelo (aplicação) com um classificador para análise de sentimento.
@@ -22,12 +22,12 @@ Exemplo: conjunto de dados de tweets marcados como positivos, negativos ou neutr
 </ul>
 
 <h3>1.2 - Aprendizagem Não Supervisionada</h3>
-<p>Nem sempre o objetivo é prever o valor de uma propriedade específica. Muitas vezes o objetivo é descobrir as relações ocultas dentro de
+<p>Nem sempre o objetivo é prever o valor de uma propriedade específica. Muitas vezes o objetivo é descobrir as <strong>relações</strong> ocultas dentro de
 um determinado conjunto de dados. Um exemplo disso seria o agrupamento (<i>cluster</i>) de objetos que são similares uns aos outros (de acordo com algum
 critério de similaridade) e dissimilares a objetos pertencentes a outros <i>clusters</i>.
 Nessas situações, o conjunto de dados não define os grupos e, como resultado, os itens não podem ser pré-designados.
-Ao contrário dos modelos preditivos (supervisionados) que se concentram em prever o comportamento de uma única entidade, os modelos descritivos identificam muitos relacionamentos diferentes entre as entidades, agrupando em <i>clusters</i> os elementos com características similares ou dissimilares. 
-Resumindo, na aprendizagem não-supervisionada buscamos extrair informação relevante de dados não rotulados.</p>
+Ao contrário dos modelos preditivos (supervisionados) que se concentram em prever o comportamento de uma única entidade, os modelos descritivos identificam muitos relacionamentos diferentes entre as entidades, agrupando em <i>clusters</i> os elementos com características <strong>similares</strong> ou <strong>dissimilares</strong>. 
+Resumindo, na aprendizagem não-supervisionada buscamos extrair informação <strong>relevante</strong> de dados não rotulados.</p>
 <p>Alguns métodos de aprendizagem não supervisionada:</p>
 <ul>
 <li>Algoritmos de <i>clustering</i></li>
@@ -37,7 +37,7 @@ Resumindo, na aprendizagem não-supervisionada buscamos extrair informação rel
 </ul>
 
 <h2>2 - Avaliação do Modelo de Classificação</h2>
-<p>A avaliação do sistema de aprendizagem de máquina utiliza as suas duas etapas principais (treinamento e teste) para verificar o desempenho do modelo. Na fase de treinamento, o algoritmo de aprendizagem de máquina constrói indutivamente um modelo do problema com base nos dados de treinamento. De posse desse modelo, o algoritmo produz saídas que provavelmente correspondem às entradas atuais na fase de teste. Essas saídas devem ser passar por um processo de validação para verificar a adequação do sistema de aprendizado. A avaliação do desempenho da classificação consiste em considerar uma das classes de saída como a classe positiva e definir:</p>
+<p>A avaliação do sistema de aprendizagem de máquina utiliza as suas duas etapas principais (treinamento e teste) para verificar o <strong>desempenho</strong> do modelo. Na fase de treinamento, o algoritmo de aprendizagem de máquina constrói <strong>indutivamente</strong> um modelo do problema com base nos dados de treinamento. De posse desse modelo, o algoritmo produz saídas que provavelmente correspondem às entradas atuais na fase de teste. Essas saídas devem ser passar por um processo de <strong>validação</strong> para verificar a adequação do sistema de aprendizado. A avaliação do desempenho da classificação consiste em considerar uma das classes de saída como a classe positiva e definir:</p>
 <ul>
 <li>verdadeiros positivos – nº de amostras corretamente rotuladas na classe positiva</li>
 <li>falsos positivos - nº de amostras incorretamente rotuladas na classe positiva</li>
@@ -49,10 +49,10 @@ Resumindo, na aprendizagem não-supervisionada buscamos extrair informação rel
 <p style="text-align: center;"><img src="/img/tabela1.png" alt="Matriz de Confus&atilde;o" width="600" height="89" /></p>
 
 <h2>3 - Estatística</h2>
-<p>A estatística é essencial para a aprendizagem de dados e para a ciência de dados. Os fundamentos básicos da estatística são necessários para, por exemplo, interpretar os dados coletados. Por exemplo, em um teste A/B é importante estar familiarizado com testes estatísticos, distribuições, estimadores de valores máximo ou mínimo, dentre outros. De modo geral, é muito importante saber quais técnicas podem ou não ser aplicadas em um determinado conjunto de dados.</p>
+<p>A estatística é <strong>essencial</strong> para a aprendizagem de dados e para a ciência de dados. Os fundamentos básicos da estatística são necessários para, por exemplo, interpretar os dados coletados. Por exemplo, em um teste A/B é importante estar familiarizado com testes estatísticos, distribuições, estimadores de valores máximo ou mínimo, dentre outros. De modo geral, é muito importante saber quais técnicas podem ou não ser aplicadas em um determinado conjunto de dados.</p>
 
 <h3>3.1 - Estatística Inferencial ou Descritiva</h3>
-<p>A amostragem é um dos conceitos mais importantes para compreender a estatística. Quando um conjunto de dados é coletado, de certo modo, apenas uma parte de todos os possíveis dados naquela área específica foi obtida. Esse subconjunto de dados é conhecido como população. A estatística descritiva ocorre quando as medidas quantitativas descrevem as propriedades de uma amostra, representando os dados de forma condensada e clara. Já a estatística inferencial utiliza um subconjunto de dados para inferir as propriedades de uma população maior.</p>
+<p>A <strong>amostragem</strong> é um dos conceitos mais importantes para compreender a estatística. Quando um conjunto de dados é coletado, de certo modo, apenas uma parte de todos os possíveis dados naquela área específica foi obtida. Esse subconjunto de dados é conhecido como população. A estatística descritiva ocorre quando as medidas quantitativas descrevem as propriedades de uma amostra, representando os dados de forma condensada e clara. Já a estatística inferencial utiliza um subconjunto de dados para inferir as propriedades de uma população maior.</p>
 <p>Alguns métodos de estatísticas inferenciais ou descritivas:</p>
 <ul>
 <li>Média, mediana e moda</li>
@@ -63,18 +63,18 @@ Resumindo, na aprendizagem não-supervisionada buscamos extrair informação rel
 </ul>
 
 <h2>4 - Programação</h2>
-<p>Programar é uma competência essencial nos dias atuais e primordial para quem pretende se tornar um cientista de dados, analista de dados ou estatístico. A grande maioria dos algoritmos utilizados já está disponível para uso em alguma ferramenta ou linguagem de programação, porém, em algum momento será necessário programar um novo sistema de extração e coleta de dados, adaptar um algoritmo de aprendizagem de máquina para outra linguagem de programação ou acessar um banco de dados na nuvem, dentre outra atividades.</p>
-<p>Por isso, é muito importante saber o básico quanto o uso de uma ou mais linguagens de programação para poder utilizar suas bibliotecas e pacotes da melhor maneira possível. Boa parte dos pesquisadores, empresas e profissionais em ciência de dados utilizam as linguagens de programação R, Python e Scala. Python vem se tornando uma das mais populares, sendo adotada como linguagem de programação em diversos programas de graduação e pós graduação nas instituições de ensino mais prestigiadas do mundo, como Stanford, MIT e USP. Os exemplos apresentados por aqui serão, na grande maioria das vezes, feitos em Python.</p>
+<p>Programar é uma competência essencial nos dias atuais e <strong>primordial</strong> para quem pretende se tornar um cientista de dados, analista de dados ou estatístico. A grande maioria dos <strong>algoritmos</strong> utilizados já está disponível para uso em alguma ferramenta ou linguagem de programação, porém, em algum momento será necessário programar um novo sistema de extração e coleta de dados, adaptar um algoritmo de aprendizagem de máquina para outra linguagem de programação ou acessar um banco de dados na nuvem, dentre outra atividades.</p>
+<p>Por isso, é muito importante saber o básico quanto o uso de uma ou mais linguagens de programação para poder utilizar suas bibliotecas e pacotes da melhor maneira possível. Boa parte dos pesquisadores, empresas e profissionais em ciência de dados utilizam as linguagens de programação R, Python e Scala. <strong>Python</strong> vem se tornando uma das mais populares, sendo adotada como linguagem de programação em diversos programas de graduação e pós graduação nas instituições de ensino mais prestigiadas do mundo, como Stanford, MIT e USP. Os exemplos apresentados por aqui serão, na grande maioria das vezes, feitos em Python.</p>
 <h3>4.1 - Python</h3>
-<p>Desde que Python passou a ser uma das linguagens de programação mais utilizada na aprendizagem de dados, muitas blibliotecas foram criadas para os mais diversos fins. Python se caracteriza por ser uma linguagem de programação de fácil aprendizado, além de ser muito poderosa e poder ser utilizada em diversas plataformas. Possui uma comunidade ativa que contribui com novas blibliotecas e módulos que são disponibilizados para uso geral de forma gratuita.</p>
+<p>Desde que Python passou a ser uma das linguagens de programação mais utilizada na aprendizagem de dados, muitas blibliotecas foram criadas para os mais diversos fins. Python se caracteriza por ser uma linguagem de programação de fácil aprendizado, além de ser muito poderosa e poder ser utilizada em diversas plataformas. Possui uma comunidade ativa que contribui com novas <strong>bibliotecas</strong> e módulos que são disponibilizados para uso geral de forma gratuita.</p>
 <p>Algumas bibliotecas Python:</p>
 <ul>
-<li>ggplot - biblioteca para a criação de representações gráficas</li>
-<li>Matplotlib - utilizada para plotagem 3D e capaz de gerar visualizações interativas</li>
-<li>NumPy - utilizada para análises numéricas amplas e matrizes multidimensionais</li>
-<li>Pandas - biblioteca para análise de dados</li>
-<li>SciPy - biblioteca voltada para a computação científica e computação técnica</li>
-<li>scikit-learn - biblioteca de aprendizagem de máquina desenvolvida em NumPy, SciPy e Matplotlib</li>
+<li><a href="http://ggplot.yhathq.com/">ggplot</a> - biblioteca para a criação de representações gráficas</li>
+<li><a href="https://matplotlib.org/">Matplotlib</a> - utilizada para plotagem 3D e capaz de gerar visualizações interativas</li>
+<li><a href="http://www.numpy.org/">NumPy</a> - utilizada para análises numéricas amplas e matrizes multidimensionais</li>
+<li><a href="https://pandas.pydata.org/">Pandas</a> - biblioteca para análise de dados</li>
+<li><a href="https://www.scipy.org/">SciPy</a> - biblioteca voltada para a computação científica e computação técnica</li>
+<li><a href="http://scikit-learn.org/stable/">Scikit-learn</a> - biblioteca de aprendizagem de máquina desenvolvida em NumPy, SciPy e Matplotlib</li>
 </ul>
 
 
