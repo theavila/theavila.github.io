@@ -57,12 +57,11 @@ for i in range(0, 7501):
     registros.append([str(cesto.values[i,j]) for j in range(0, 20)])
 {% endhighlight %}
 
-{% highlight python %} regras = list(apriori(registros, min_support=0.0045,
+{% highlight python %}regras = list(apriori(registros, min_support=0.0045,
                                      min_confidence=0.2, min_lift=3, min_length=2))
 {% endhighlight %}
 
-{% highlight python %} 
-print(len(regras))
+{% highlight python %}print(len(regras))
 print(regras[0])
 {% endhighlight %}
 
@@ -78,8 +77,7 @@ Lift: Aumento é a razão entre a confiança e o suporte.
 
 Tipicamente, regras de associação são consideradas de interesse se elas satisfazem tanto um suporte mínimo quanto uma confiança mínima.
 
-{% highlight python %} 
-mostrar = 0
+{% highlight python %}mostrar = 0
 for item in regras:
     items = [x for x in item[0]]
     print("Relação   - " + items[0] + " -> " + items[1])
