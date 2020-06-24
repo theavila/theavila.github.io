@@ -57,8 +57,8 @@ for i in range(0, 7501):
     registros.append([str(cesto.values[i,j]) for j in range(0, 20)])
 {% endhighlight %}
 
-{% highlight python %} 
-regras = list(apriori(registros, min_support=0.0045, min_confidence=0.2, min_lift=3, min_length=2))
+{% highlight python %} regras = list(apriori(registros, min_support=0.0045,
+                                     min_confidence=0.2, min_lift=3, min_length=2))
 {% endhighlight %}
 
 {% highlight python %} 
