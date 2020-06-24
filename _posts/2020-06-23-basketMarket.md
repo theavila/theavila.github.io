@@ -25,11 +25,9 @@ Vamos ver o algoritmo Apriori em ação. Usaremos o algoritmo Apriori para encon
 
 Este processo analisa os hábitos de compra de clientes por meio da descoberta de associações entre diferentes itens que aparecem no carrinho de compras. A descoberta destas associações ajuda os varejistas no desenvolvimento de estratégias de marketing, uma vez revelam quais itens são frequentemente comprados juntos pelos clientes.
 
-{% highlight python %} 
-
+{% highlight python %}
 import pandas as pd
 from apyori import apriori
-
 {% endhighlight %}
 
 ## Conjunto de dados <a name="dados"></a>
@@ -38,17 +36,13 @@ Utilizando um cojunto de dados com 7500 registros de compras que ocorreram em um
 
 Dataset disponível em: <a href="https://drive.google.com/file/d/1y5DYn0dGoSbC22xowBq2d4po6h1JxcTQ/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1y5DYn0dGoSbC22xowBq2d4po6h1JxcTQ/view?usp=sharing</a>
 
-{% highlight python %} 
-
+{% highlight python %}
 cesto = pd.read_csv('cesto.csv', header=None)
 cesto.head()
-
 {% endhighlight %}
 
-{% highlight python %} 
-
+{% highlight python %}
 cesto.count(axis='columns')
-
 {% endhighlight %}
 
 ## Pré-processamento dos registros <a name="pre"></a>
@@ -57,25 +51,19 @@ A biblioteca Apriori utiliza conjunto de dados como lista de listas.
 
 Portanto, iremos formatar os registros em uma grande lista onde cada transação no conjunto de dados terá uma lista interna da grande lista externa.
 
-{% highlight python %} 
-
+{% highlight python %}
 registros = []
 for i in range(0, 7501):
     registros.append([str(cesto.values[i,j]) for j in range(0, 20)])
-
 {% endhighlight %}
 
 {% highlight python %} 
-
 regras = list(apriori(registros, min_support=0.0045, min_confidence=0.2, min_lift=3, min_length=2))
-
 {% endhighlight %}
 
 {% highlight python %} 
-
 print(len(regras))
 print(regras[0])
-
 {% endhighlight %}
 
 ## Apriori utiliza 3 variáveis <a name="regras"></a>
@@ -91,7 +79,6 @@ Lift: Aumento é a razão entre a confiança e o suporte.
 Tipicamente, regras de associação são consideradas de interesse se elas satisfazem tanto um suporte mínimo quanto uma confiança mínima.
 
 {% highlight python %} 
-
 mostrar = 0
 for item in regras:
     items = [x for x in item[0]]
@@ -103,7 +90,6 @@ for item in regras:
     mostrar += 1
     if (mostrar == 5):
         break
-
 {% endhighlight %}
 
 ## Considerações Finais <a name="fim"></a>
