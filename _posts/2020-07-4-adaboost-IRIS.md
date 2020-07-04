@@ -165,9 +165,10 @@ Para uma melhor interpretação, podemos exibir o relatório de classificação 
 print("Relatório de Classificação \n",classification_report(y_pred,y_test))
 {% endhighlight %}
 
-```Relatório de Classificação 
-               precision    recall  f1-score   support
+```
+Relatório de Classificação 
 
+                precision    recall  f1-score   support
            0       1.00      1.00      1.00        24
            1       1.00      0.89      0.94        19
            2       0.89      1.00      0.94        17
@@ -175,6 +176,7 @@ print("Relatório de Classificação \n",classification_report(y_pred,y_test))
     accuracy                           0.97        60
    macro avg       0.96      0.96      0.96        60
 weighted avg       0.97      0.97      0.97        60
+
 ```
 
 Ou exibir a matriz de confusão:
