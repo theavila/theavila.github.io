@@ -128,6 +128,7 @@ bdt.fit(x_train,y_train)
 
 Ao executar esse último ajuste, teremos a seguinte saída exibindo os critérios que serão utilizados pelo classificador:
 
+```
 AdaBoostClassifier(algorithm='SAMME',
                    base_estimator=DecisionTreeClassifier(ccp_alpha=0.0,
                                                          class_weight=None,
@@ -144,6 +145,7 @@ AdaBoostClassifier(algorithm='SAMME',
                                                          random_state=None,
                                                          splitter='best'),
                    learning_rate=0.2, n_estimators=100, random_state=None)
+```
 
 Agora, carregamos o modelo de predição:
 
@@ -163,7 +165,7 @@ Para uma melhor interpretação, podemos exibir o relatório de classificação 
 print("Relatório de Classificação \n",classification_report(y_pred,y_test))
 {% endhighlight %}
 
-Relatório de Classificação 
+```Relatório de Classificação 
                precision    recall  f1-score   support
 
            0       1.00      1.00      1.00        24
@@ -173,6 +175,7 @@ Relatório de Classificação
     accuracy                           0.97        60
    macro avg       0.96      0.96      0.96        60
 weighted avg       0.97      0.97      0.97        60
+```
 
 Ou exibir a matriz de confusão:
 
