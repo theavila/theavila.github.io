@@ -32,7 +32,7 @@ from apyori import apriori
 
 ## Conjunto de dados <a name="dados"></a>
 
-Utilizando um cojunto de dados com 7500 registros de compras que ocorreram em um supermercado francês no período de uma semana.
+Utilizando um conjunto de dados com 7500 registros de compras que ocorreram em um supermercado francês no período de uma semana.
 
 Dataset disponível em: <a href="https://drive.google.com/file/d/1y5DYn0dGoSbC22xowBq2d4po6h1JxcTQ/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1y5DYn0dGoSbC22xowBq2d4po6h1JxcTQ/view?usp=sharing</a>
 
