@@ -7,7 +7,7 @@ title: "Tutoriais"
 <strong>Informações importantes:</strong> Os tutoriais seguem uma estrutura linear, sendo recomendado seguir a ordem cronológica das postagens.<h3></div>
 
 
-{% for post in site.posts reversed %}
+{% for post in site.posts %}
     {% if post.tags contains 'Tutorial' %}
         <hr>
         <div class="post-preview" style="margin-top: 2%;">
