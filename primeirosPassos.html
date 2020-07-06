@@ -3,7 +3,7 @@ layout: page
 title: "Primeiros Passos"
 ---
 <h2>1 - O que é Aprendizagem de Máquina?</h2>
-<p>A aprendizagem de máquina (<i>machine learning</i>) é uma mecanismo poderoso para cálculo de previsões e sugestões, utilizando a análise de dados. Não é necessariamente preciso criar novos algoritmos, mas é <strong>essencial</strong> entender e dominar os algoritmos mais comuns, sejam eles utilizando método de aprendizado <strong>supervisionados</strong> ou <strong>não supervisionados</strong>. Alguns exemplos são: análise de componentes principais (PCA), redes neurais, máquinas de suporte vetorial (SVM) e algoritmo de <i>cluster</i> k-means (KNN). É muito importante conhecer a teoria e os detalhes de implementação por trás desses algoritmos, além de conhecer os prós e contras, entendendo a aplicabilidade de cada um.</p>
+<p>A aprendizagem de máquina (<i>machine learning</i>) é uma mecanismo poderoso para cálculo de previsões e sugestões, utilizando a análise de dados. Não é necessariamente preciso criar novos algoritmos, mas é <strong>essencial</strong> entender e dominar os algoritmos mais comuns, sejam eles utilizando método de aprendizado <strong>supervisionado</strong>, <strong>não supervisionados</strong> ou <strong>por reforço</strong>. Alguns exemplos são: análise de componentes principais (PCA), redes neurais, máquinas de suporte vetorial (SVM) e algoritmo de <i>cluster</i> k-means (KNN). É muito importante conhecer a teoria e os detalhes de implementação por trás desses algoritmos, além de conhecer os prós e contras, entendendo a aplicabilidade de cada um.</p>
 
 <h3>1.1 - Aprendizagem Supervisionada</h3>
 <p>A aprendizagem supervisionada é útilizada quando o conjunto de dados possui rótulos que classifica cada instância utilizada. Esse rótulo pode ser tanto um valor numérico quanto uma categoria ou classe. Esse método de aprendizagem consiste em encontrar um <strong>modelo</strong> que seja capaz de identificar um padrão utilizando um conjunto de amostras de entrada. De posse do modelo, o próximo passo é avaliar a <strong>probabilidade</strong> de que uma instância obtenha desempenho específico em um conjunto de amostras diferente.
@@ -21,6 +21,20 @@ Exemplo: conjunto de dados de tweets marcados como positivos, negativos ou neutr
 <li>M&aacute;quinas de suporte vetorial (SVM)</li>
 </ul>
 
+<h3>1.1.1 - Aprendizagem Semi Supervisionada</h3>
+<p>Entre a aprendizagem supervisionada e o não supervisionada, existem ainda as técnicas de aprendizagem semi 
+supervisionada. Para obter bons resultados com aprendizagem supervisionada, normalmente é preciso de muitas 
+observações de variáveis de entrada X, etiquetadas com as variáveis de saída Y. No entanto, dados nomeados 
+com Y são escassos, muitas vezes porque o custo de nomeá-los é alto demais. Pense por exemplo, em um estudo que 
+tenta mapear a melhor composição para um medicamento, dada as características físicas de uma pessoa. Nesse caso, 
+seria custoso demais vacinar experimentalmente milhares de pessoas; por outro lado, coletar as características 
+físicas delas é bem mais simples.</p>
+<p>A aprendizagem semi supervisionada atua nessas situações, na qual muitas das observações X não estão nomeadas 
+com seus pares Y. Sendo um dos grandes desafios no campo de aprendizagem de máquina, no qual as aplicações bem 
+sucedidas não são tão abundantes. Talvez os avanços mais notáveis obtidos com aprendizagem semi supervisionada 
+são na área de processamento de linguagem natural, quando primeiro se aprende regras semânticas para as palavras 
+e depois utiliza-se a semântica aprendida para realizar previsões.</p>
+
 <h3>1.2 - Aprendizagem Não Supervisionada</h3>
 <p>Nem sempre o objetivo é prever o valor de uma propriedade específica. Muitas vezes o objetivo é descobrir as <strong>relações</strong> ocultas dentro de
 um determinado conjunto de dados. Um exemplo disso seria o agrupamento (<i>cluster</i>) de objetos que são similares uns aos outros (de acordo com algum
@@ -29,6 +43,30 @@ Nessas situações, o conjunto de dados não define os grupos e, como resultado,
 Ao contrário dos modelos preditivos (supervisionados) que se concentram em prever o comportamento de uma única entidade, os modelos descritivos identificam muitos relacionamentos diferentes entre as entidades, agrupando em <i>clusters</i> os elementos com características <strong>similares</strong> ou <strong>dissimilares</strong>. 
 Resumindo, na aprendizagem não-supervisionada buscamos extrair informação <strong>relevante</strong> de dados não rotulados.</p>
 <p>Alguns métodos de aprendizagem não supervisionada:</p>
+<ul>
+<li>Q-<i>learning</i></li>
+<li>Sarsa</li>
+<li>Q(λ)</li>
+</ul>
+
+<h3>1.3 - Aprendizagem por Reforço</h3>
+<p>Na abordagem de aprendizagem por reforço, a máquina tenta aprender qual é a melhor ação a ser tomada, 
+dependendo das circunstâncias na qual determinada ação será executada.</p>
+<p>Nesse caso, o futuro é uma variável aleatória no qual não se sabe que irá acontecer. Faz-se necessário uma 
+abordagem que seja capaz de levar em consideração a incerteza e que consiga incorporar eventuais mudanças durante
+o processo de seleção da melhor decisão a ser tomada. Essa ideia é derivada do conceito de “aprendizagem por 
+reforço” da psicologia, no qual uma recompensa ou punição é dada a um agente, dependendo da decisão tomada.
+Com o tempo e a repetição dos experimentos, espera-se que o agente consiga associar as ações que geram maior 
+recompensa para cada situação que o ambiente apresenta, e passe a evitar as ações que geram punição ou 
+recompensa menor.</p>
+<p>Dentre o conjunto de cenários futuros possíveis, escolher uma ação a se tomar e receber a melhor recompensa
+associada a essa ação dentro dos cenários possíveis faz com que esse tipo de aprendizagem de máquina aprenda 
+qual é a melhor política ao maximizar a recompensa ao longo das interações com o ambiente.</p>
+<p>A aprendizagem por reforço tem bastante influência da Psicologia e da Economia, particularmente do campo de
+ teoria dos jogos. Algumas das aplicações de aprendizagem por reforço são construir oponentes em videogames, 
+ movimentação de robôs, simulações de ambientes complexos e aprender estratégias de troca no mercado financeiro.</p>
+
+<p>Alguns exemplos de algoritmos de aprendizagem por reforço:</p>
 <ul>
 <li>Algoritmos de <i>clustering</i></li>
 <li>Análise do componente principal (PCA)</li>

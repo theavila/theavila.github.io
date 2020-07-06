@@ -1,7 +1,6 @@
 ---
 layout: tutorial
 comments: true
-color: "#ffc107"
 title: Compra de Veículo utilizando Árvore de Decisão
 subtitle: "Árvore de Decisão"
 lang: pt
