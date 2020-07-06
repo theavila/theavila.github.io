@@ -110,7 +110,7 @@ model.fit(entradas, objetivo)
 Para verificar se o modelo responde ao nosso objetivo, podemos verificar se existe algum veículo de baixo custo, baixa manutencão, seguro, 2 portas e pelo menos 4 lugares:
 
 {% highlight python %}
-# buying, maint, lug_boot, safety, class, doors, persons
+% # buying, maint, lug_boot, safety, class, doors, persons
 model.predict([[1, 1, 1, 1, 1, 1, 1]])
 {% endhighlight %}
 
