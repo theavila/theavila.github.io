@@ -4,7 +4,7 @@ comments: true
 title: Classificação de Flores do Tipo Iris
 subtitle: "Algoritmo Adaboost"
 lang: pt
-date: 2022-07-4
+date: 2020-07-4
 true-dt: 2020-07-4
 tags: [Tutorial,python,Jupyter]
 author: "Ricardo Avila"
@@ -25,7 +25,7 @@ O algoritmo AdaBoost foi desenvolvido em 1996 por Yoav Freund e Robert Schapire.
 
 O AdaBoost é considerado um classificador fraco de repetidas iterações. Em cada chamada, a distribuição dos pesos é atualizada de modo a destacar a importância de cada exemplo no conjunto de dados usado para classificação. Desse modo, após cada iteração os pesos são aumentados quando o exemplo é classificado incorretamente ou diminuído quando classificado corretamente.
 
-Primeiramente, iremos inportar as bibliotecas básicas que serão utilizadas nesse exemplo.
+Primeiramente, iremos importar as bibliotecas básicas que serão utilizadas nesse exemplo.
 
 {% highlight python %}
 import pandas as pd 
@@ -75,9 +75,7 @@ y = df['Target']
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=45)
 {% endhighlight %}
 
-Finalmente, executamos uma pesquisa em grade para ajustar os parametros do classificador. Nesse caso, iremos iniciar com uma Árvore de Decisão para em seguida comparar os resultados com o Adaboost.
-
-Primeiro, importamos as bibliotecas do Scikit-learn:
+Finalmente, executamos uma pesquisa em grade para ajustar os parametros do classificador. Primeiro, importamos as bibliotecas do Scikit-learn:
 
 {% highlight python %}
 from sklearn.model_selection import train_test_split
@@ -130,21 +128,13 @@ Ao executar esse último ajuste, teremos a seguinte saída exibindo os critério
 
 ```
 AdaBoostClassifier(algorithm='SAMME',
-                   base_estimator=DecisionTreeClassifier(ccp_alpha=0.0,
-                                                         class_weight=None,
-                                                         criterion='gini',
-                                                         max_depth=6,
-                                                         max_features=None,
-                                                         max_leaf_nodes=5,
-                                                         min_impurity_decrease=0.0,
-                                                         min_impurity_split=None,
-                                                         min_samples_leaf=1,
-                                                         min_samples_split=2,
-                                                         min_weight_fraction_leaf=0.0,
-                                                         presort='deprecated',
-                                                         random_state=None,
-                                                         splitter='best'),
-                   learning_rate=0.2, n_estimators=100, random_state=None)
+         base_estimator=DecisionTreeClassifier(ccp_alpha=0.0,
+         class_weight=None, criterion='gini', max_depth=6,
+         max_features=None, max_leaf_nodes=5, min_impurity_decrease=0.0,
+         min_impurity_split=None, min_samples_leaf=1, min_samples_split=2,
+         min_weight_fraction_leaf=0.0, presort='deprecated', random_state=None,
+         splitter='best'),
+         learning_rate=0.2, n_estimators=100, random_state=None)
 ```
 
 Agora, carregamos o modelo de predição:

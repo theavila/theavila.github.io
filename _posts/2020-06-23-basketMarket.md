@@ -4,7 +4,7 @@ comments: true
 title: Análise de Hábitos de Compras Utilizando Regras de Associação
 subtitle: "Algoritmo Apriori"
 lang: pt
-date: 2022-06-23
+date: 2020-06-23
 true-dt: 2020-06-23
 tags: [Tutorial,python,Jupyter]
 author: "Ricardo Avila"
