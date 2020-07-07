@@ -57,7 +57,7 @@ df = pd.read_csv('car.csv')
 df.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/cars.png" alt="iris-head" style="width:60%"/>
+<img class="img-responsive center-block thumbnail" src="/img/cars.png" alt="cars-head" style="width:60%"/>
 
 ## Pré-processamento dos registros <a name="pre"></a>
 
