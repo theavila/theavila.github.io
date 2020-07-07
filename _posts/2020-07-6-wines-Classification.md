@@ -66,7 +66,7 @@ data = pd.read_csv('winequality-red.csv', delimiter=';')
 df.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/wineHead.png" alt="wine-head" style="width:60%"/>
+<img class="img-responsive center-block thumbnail" src="/img/wineHead.png" alt="wine-head" style="width:85%"/>
 
 ## Verificando a correlação entre as colunas <a name="pre"></a>
 
@@ -112,7 +112,7 @@ g = sns.heatmap(corr, ax=ax, cmap=plt.cm.Blues, annot=True)
 ax.set_title('Correlação entre os atributos')
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/wineHeatMap.png" alt="wine-head" style="width:60%"/>
+<img class="img-responsive center-block thumbnail" src="/img/wineHeatMap.png" alt="wine-head" style="width:85%"/>
 
 Com a visualização do mapa de calor mostrando a relação entre todos os atributos e a classe de saída, podemos ter uma melhor representação da importância de alguns atributos para a determinação da qualidade dos vinhos. Os atributos mais próximos da cor branca podem ser considerados fracos enquanto que os que estiverem com a cor azul mais forte, podem ser considerados importantes.
 
@@ -123,7 +123,7 @@ fig = plt.figure(figsize=(10,6))
 sns.barplot(x='quality', y='fixed acidity', data=data)
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/wineBarPlot.png" alt="wine-head" style="width:60%"/>
+<img class="img-responsive center-block thumbnail" src="/img/wineBarPlot.png" alt="wine-head" style="width:85%"/>
 
 De fato a acidez fixada possui alguma relação com a qualidade dos vinhos, tendo uma distribuição bastante uniforme dentro do conjunto de dados. Podemos fazer outras tipos de análises exploratórias com os dados para identificar outras características importante, porém vamos seguir em frente e construir nosso modelo de classificação de vinhos.
 
