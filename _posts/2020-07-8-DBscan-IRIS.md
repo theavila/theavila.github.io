@@ -43,11 +43,11 @@ from sklearn.datasets import make_moons
 %matplotlib inline
 {% endhighlight %}
 
-Além das bibliotecas Pandas e NumPy, também iremos utilizar o Scikit-learn para utilizar o algoritmo DBSCAN e a bliblioteca MatPlotLib para gerar os gráficos.
+Além das bibliotecas Pandas e NumPy, também iremos utilizar o Scikit-learn para utilizar o algoritmo DBSCAN e a biblioteca MatPlotLib para gerar os gráficos.
 
 ## Conjunto de Dados <a name="dados"></a>
 
-Para esse exemplo, utilizamos o conjunto de dados Iris que possui 150 registros de 3 espécies diferentes de flor Iris: Versicolor, Setosa e Virginica. Cada registro do conjunto possui cinco características: SepalLength (Comprimento da Sépala), SepalWidth (Largura da Sépala), PetalLength (Comprimento da Pétala), PetalWidth (Largura da Pétala) e class (Classe).
+Para esse exemplo, utilizei mais uma vez o conjunto de dados Iris. Esse conjunto possui 150 registros de 3 espécies diferentes de flor Iris: Versicolor, Setosa e Virginica. Cada registro do conjunto possui cinco características: SepalLength (Comprimento da Sépala), SepalWidth (Largura da Sépala), PetalLength (Comprimento da Pétala), PetalWidth (Largura da Pétala) e class (Classe).
 
 Dataset disponível em: <a href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">https://archive.ics.uci.edu/ml/datasets/Iris</a>
 
@@ -57,7 +57,7 @@ df.columns = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Classes
 df.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/iris-head.png" alt="iris-head" style="width:95%"/>
+<img class="img-responsive center-block thumbnail" src="/img/iris-head.png" alt="iris-head" style="width:70%"/>
 
 ## Criando o Modelo de Treinamento <a name="modelo"></a>
 
@@ -76,7 +76,7 @@ Para facilitar a visualização do modelo criado, iremos selecionar o conjunto d
 df[model.labels_==-1]
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/headDBScan.png" alt="iris-head" style="width:95%"/>
+<img class="img-responsive center-block thumbnail" src="/img/headDBScan.png" alt="iris-head" style="width:70%"/>
 
 Conseguimos localizar 7 pontos com evidências de serem outliers. O próximo passo é gerar um gráfico:
 
