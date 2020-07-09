@@ -69,7 +69,7 @@ df = pd.DataFrame(train)
 df.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/headTitanic.png" alt="Titanic-head" style="width:70%"/>
+<img class="img-responsive center-block thumbnail" src="/img/headTitanic.png" alt="Titanic-head" style="width:95%"/>
 
 O conjunto de treinamento tem 891 registros e 11 características + a variável de destino (Survived). Dois atributos são do tipo floats, cinco inteiros e cinco são objetos. Abaixo apresento uma breve descrição de cada atributo:
 
