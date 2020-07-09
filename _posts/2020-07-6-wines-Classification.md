@@ -2,7 +2,7 @@
 layout: tutorial
 comments: true
 title: Classificação de Vinhos
-subtitle: "Utilizando modelos de aprendizagem com Random Florest, Gradiente Descendente Estocástico e SVM"
+subtitle: "Utilizando modelos de aprendizagem com Random Forest, Gradiente Descendente Estocástico e SVM"
 lang: pt
 date: 2020-07-6
 true-dt: 2020-07-6
@@ -33,7 +33,7 @@ import numpy as np
 import sklearn
 {% endhighlight %}
 
-Além das bibliotecas Pandas e NumPy, também iremos utilizar o Scikit-learn para utilizar os modelos de aprendizagem Random Florest, Gradiente Descendente Estocástico e Support Vector Machine.
+Além das bibliotecas Pandas e NumPy, também iremos utilizar o Scikit-learn para utilizar os modelos de aprendizagem Random Forest, Gradiente Descendente Estocástico e Support Vector Machine.
 
 ## Conjunto de Dados de Vinhos <a name="dados"></a>
 
@@ -160,7 +160,7 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.fit_transform(X_test)
 {% endhighlight %}
 
-O primeiro modelo será com Random Florest:
+O primeiro modelo será com Random Forest:
 
 {% highlight python %}
 from sklearn.ensemble import RandomForestClassifier
@@ -237,6 +237,6 @@ E finalmente, o modelo SVM tamb+em obteve 88% de precisão.
 
 ## Considerações Finais <a name="fim"></a>
 
-Nesse tutorial utilizamos 3 modelos diferentes para classificar vinhos baseados em seus atributos físicos-químicos. Obtivemos bons resultados de precisão 88% utilizando Random Florest e SVM. Esses modelos podem ser aplicados a outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
+Nesse tutorial utilizamos 3 modelos diferentes para classificar vinhos baseados em seus atributos físicos-químicos. Obtivemos bons resultados de precisão 88% utilizando Random Forest e SVM. Esses modelos podem ser aplicados a outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.
