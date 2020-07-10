@@ -126,7 +126,7 @@ fuzzy.view()
 plt.show()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/FuzzyPlot.png" alt="Fuzzy-plot" style="width:90%"/>
+<img class="img-responsive center-block thumbnail" src="/img/FuzzyPlot.png" alt="Fuzzy-plot" style="width:70%"/>
 
 De acordo com a imagem gerada, temos a distribuição gaussiana (também conhecida por distribuição normal), em formato de uma curva simétrica em torno do seu ponto médio, apresentando assim seu famoso formato de sino. Como a base de dados é distribuída em subconjuntos de 50 isntâncias para cada classe de flor do tipo Iris, cada curva de distribuição normal representa uma das faixas de valores de uma certa probabilidade de ocorrência.
 
