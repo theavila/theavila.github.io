@@ -4,8 +4,8 @@ comments: true
 title: Modelo Supervisionado Floresta Aleatória 
 subtitle: "Identificando sobreviventes no conjunto de dados do Titanic"
 lang: pt
-date: 2020-07-8
-true-dt: 2020-07-8
+date: 2020-07-9
+true-dt: 2020-07-9
 tags: [Tutorial,python,Jupyter]
 author: "Ricardo Avila"
 comments: true
