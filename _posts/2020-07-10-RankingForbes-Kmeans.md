@@ -140,7 +140,10 @@ Coincidências a parte, vamos seguir em frente utilizando o algoritmo K-Means.
 
 ## Criando o Modelo de Treinamento <a name="modelo"></a>
 
-Para utlizar o algoritmo de Lógica Nebulosa, fuzzificar  as entradas. Para isso iremos criar uma função para passar uma amostra da base de dados e, para cada atributo da amostra, iremos transformá-lo em outros 3 atributos (de acordo com o grau de pertinência para cada uma das 3 classes).
+No algoritmo de clusterização Kmeans, uma das abordagens mais utilizadas para determinar o valor de K é chamada método cotovelo (The elbow method). Isso envolve executar o algoritmo várias vezes em um loop, com um número crescente de opções de cluster e, em seguida, plotar a pontuação de cluster em relação ao número de clusters.
+
+Uma plotagem típica se parece com a seguinte:
+
 
 {% highlight python %}
 def fuzzying(vetor):
