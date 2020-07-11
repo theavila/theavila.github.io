@@ -9,7 +9,7 @@ true-dt: 2020-07-10
 tags: [Post]
 author: "Ricardo Avila"
 comments: true
-header-img: "img/ranking.png"
+header-img: /img/ranking.png
 thumbnail: /img/plotCluster.png
 modal-id: 10
 description: O perfil dos atletas mais bem pagos do mundo pode apresentar características importantes. Que tipo de relação pode existir em relação a idade, o sexo, o tipo de atividade esportiva e os salários recebidos pelos maiores atletas em atividade da atualidade? Vamos tentar entender o que leva as empresas de Marketing a definirem os salários dos seus garotos(as) propaganda.
