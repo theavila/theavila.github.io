@@ -110,7 +110,7 @@ Com uma simples descrição do dataframe podemos obter mais informações import
 df.describe()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/describeForbes.png" alt="Describe-Forbes" style="width:80%"/>
+<img class="img-responsive center-block thumbnail" src="/img/describeForbes.png" alt="Describe-Forbes" style="width:70%"/>
 
 Antes de seguir em frente, apenas para não passarmos em branco com essa Análise Exploratória de Dados (sempre importante para entender melhor o conjunto de dados independente da quantidade de registros), podemos observar que as colunas de salário e idade podem ser consideradas bem distribuídas com os valores de média, minímo e desvio padrão relativamente coerentes. O mesmo não pode ser dito da coluna de Marketing, que apresenta os valores de média e desvio padrão muito próximos, evidenciando que o máximo e mínimo estão muito separados. De fato, o valor máximo de 100 milhões e mínimo de 300 mil indica que esse atleta em particular precisa melhorar a sua imagem ou trocar de empresário. ;)
 
@@ -124,7 +124,7 @@ df.plot(kind='scatter', x='Salary', y='Age', ax=axs[1])
 df.plot(kind='scatter', x='Marketing', y='Age', ax=axs[2])
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/scatterIdadeOutros.png" alt="Scatter-Forbes" style="width:95%"/>
+<img class="img-responsive center-block thumbnail" src="/img/scatterIdadeOutros.png" alt="Scatter-Forbes" style="width:115%"/>
 
 De acordo com os gráficos de dispersão (scatter plots), o grande diferencial são os valores pagos com Marketing. Podemos até ver 3 pontos separados de um grande aglomerado alinahdo a esquerda. Os outros atributos de Salário Total e Salário possuem distribuições razoáveis. Um fato importante que podemos destacar em relação a idade dos atletas é o fato do mais jovem possuir 21 anos e o mais velho 50 anos, sendo a média de idade de 31 anos e 8 meses.
 
