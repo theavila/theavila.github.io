@@ -124,7 +124,7 @@ df.plot(kind='scatter', x='Salary', y='Age', ax=axs[1])
 df.plot(kind='scatter', x='Marketing', y='Age', ax=axs[2])
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/scatterIdadeOutros.png" alt="Scatter-Forbes" style="width:80%"/>
+<img class="img-responsive center-block thumbnail" src="/img/scatterIdadeOutros.png" alt="Scatter-Forbes" style="width:95%"/>
 
 De acordo com os gráficos de dispersão (scatter plots), o grande diferencial são os valores pagos com Marketing. Podemos até ver 3 pontos separados de um grande aglomerado alinahdo a esquerda. Os outros atributos de Salário Total e Salário possuem distribuições razoáveis. Um fato importante que podemos destacar em relação a idade dos atletas é o fato do mais jovem possuir 21 anos e o mais velho 50 anos, sendo a média de idade de 31 anos e 8 meses.
 
@@ -136,7 +136,7 @@ errors = df.groupby('Age').std()['Marketing'] / np.sqrt(df.groupby('Age').count(
 ax = means.plot.bar(yerr=errors,figsize=(15,5))
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/scatterMarketingIdade.png" alt="Marketing-idade-plot" style="width:70%"/>
+<img class="img-responsive center-block thumbnail" src="/img/scatterMarketingIdade.png" alt="Marketing-idade-plot" style="width:90%"/>
 
 A distribuição dos valores não apresentam nenhuma surpresa, entando os valores de Marketing ligeiramente distribuídos entre as faixas etárias. O destaque fica apeans para a idade de 38 no qual um dos elementos possui uma renda de Marketing mais de duas vezes maior em comparação com o atleta da mesma idade. Analisando o conjunto de dados, verificamos que os atletas em questão são Roger Federer e Serena Williams, ambos tenistas e os maiores vencedores de Grand Slams e títulos em do ATP Tour ainda em atividade. Porém, por motivos que não podemos aferir, possuem essa diferença de valores. 
 
