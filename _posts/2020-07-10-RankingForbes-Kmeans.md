@@ -1,16 +1,20 @@
 ---
-layout: tutorial
+layout: post
 comments: true
-title: Clusterização dos Esportistas mais Bem Pagos do Mundo
+title: Análise dos Esportistas mais Bem Pagos do Mundo
 subtitle: "Algoritmo K-Means utilizando o Ranking da Forbes de 2020"
 lang: pt
 date: 2020-07-10
 true-dt: 2020-07-10
-tags: [Tutorial,python,Jupyter]
+tags: [Post]
 author: "Ricardo Avila"
 comments: true
 header-img: "img/ranking.png"
+thumbnail: /img/plotCluster.png
+modal-id: 10
+description: O perfil dos atletas mais bem pagos do mundo pode apresentar características importantes. Que tipo de relação pode existir em relação a idade, o sexo, o tipo de atividade esportiva e os salários recebidos pelos maiores atletas em atividade da atualidade? Vamos tentar entender o que leva as empresas de Marketing a definirem os salários dos seus garotos(as) propaganda.
 ---
+
 ## Conteúdo
 
 0. [Características do Algoritmo K-Means](#modelo)
@@ -108,7 +112,7 @@ df.describe()
 
 <img class="img-responsive center-block thumbnail" src="/img/describeForbes.png" alt="Describe-Forbes" style="width:80%"/>
 
-Antes de seguir em frente, apenas para não passarmos em branco com essa Análise Exploratória de Dados (sempre importante para entender melhor o conjunto de dados independente da quantidade de registros), podemos observar que as colunas de salário e idade podem ser consideradas bem distribuídas com os valores de média, minímo e desvio padrão relativamente coerentes. o mesmo não pode ser dito da coluna de Marketing, que apresenta os valores de média e desvio padrão muito próximos, evidenciando que o máximo e mínimo estão muito separados. De fato, o valor máximo de 100 milhões e mínimo de 300 mil indica que esse atleta em particular precisa melhorar a sua imagem ou trocar de empresário. ;)
+Antes de seguir em frente, apenas para não passarmos em branco com essa Análise Exploratória de Dados (sempre importante para entender melhor o conjunto de dados independente da quantidade de registros), podemos observar que as colunas de salário e idade podem ser consideradas bem distribuídas com os valores de média, minímo e desvio padrão relativamente coerentes. O mesmo não pode ser dito da coluna de Marketing, que apresenta os valores de média e desvio padrão muito próximos, evidenciando que o máximo e mínimo estão muito separados. De fato, o valor máximo de 100 milhões e mínimo de 300 mil indica que esse atleta em particular precisa melhorar a sua imagem ou trocar de empresário. ;)
 
 Vamos plotar alguns gráficos para ter uma melhor compreensão da relação da idade dos atletas com os outros atributos.
 
@@ -134,171 +138,81 @@ ax = means.plot.bar(yerr=errors,figsize=(15,5))
 
 <img class="img-responsive center-block thumbnail" src="/img/scatterMarketingIdade.png" alt="Marketing-idade-plot" style="width:70%"/>
 
-De acordo com a imagem gerada, podemos verificar que as idades de 27, 32 e 34 anos se sobressaem em relação as outras. Pode até parecer que são informações irrelevantes, porém de acordo com os ranking de anos anteriores da própria Forbes, a média de idade dos atletas também ficou bem próxima dos 31 anos. Essa é exatamente a média dessa amostra com os valores 27, 32 e 34 e do conjunto de dados com os 50 atletas.
+A distribuição dos valores não apresentam nenhuma surpresa, entando os valores de Marketing ligeiramente distribuídos entre as faixas etárias. O destaque fica apeans para a idade de 38 no qual um dos elementos possui uma renda de Marketing mais de duas vezes maior em comparação com o atleta da mesma idade. Analisando o conjunto de dados, verificamos que os atletas em questão são Roger Federer e Serena Williams, ambos tenistas e os maiores vencedores de Grand Slams e títulos em do ATP Tour ainda em atividade. Porém, por motivos que não podemos aferir, possuem essa diferença de valores. 
+
 
 Coincidências a parte, vamos seguir em frente utilizando o algoritmo K-Means.
 
 ## Criando o Modelo de Treinamento <a name="modelo"></a>
 
-No algoritmo de clusterização Kmeans, uma das abordagens mais utilizadas para determinar o valor de K é chamada método cotovelo (The elbow method). Isso envolve executar o algoritmo várias vezes em um loop, com um número crescente de opções de cluster e, em seguida, plotar a pontuação de cluster em relação ao número de clusters.
+No algoritmo de clusterização K-means, uma das abordagens mais utilizadas para determinar o valor de K é chamada método cotovelo (The elbow method). Isso envolve executar o algoritmo várias vezes em um loop, com um número crescente de opções de cluster e, em seguida, plotar a pontuação de cluster em relação ao número de clusters.
 
 Uma plotagem típica se parece com a seguinte:
 
+<img class="img-responsive center-block thumbnail" src="/img/elbow-method.png" alt="elbow-method" style="width:70%"/>
+
+A pontuação é, em geral, uma medida dos dados de entrada na função objetivo de médias k, isto é, a distância intra-cluster em relação à distância interna do cluster.
+
+Para descobrir o valor de K, utilizamos o código a seguir:
 
 {% highlight python %}
-def fuzzying(vetor):
-    retorno = []
-    for i in range(len(vetor)):
-        retorno.append(fuzz.interp_membership(universo, fuzz.gaussmf(universo, media_setosa, desvio_setosa), vetor[i]))
-        retorno.append(fuzz.interp_membership(universo, fuzz.gaussmf(universo, media_versicolor, desvio_versicolor), vetor[i]))
-        retorno.append(fuzz.interp_membership(universo, fuzz.gaussmf(universo, media_virginica, desvio_virginica), vetor[i]))
-    return np.asarray(retorno).T
+k_rng = range(1,10)
+sse = []
+for k in k_rng:
+    km = KMeans(n_clusters=k)
+    km.fit(df[['Age','Marketing']])
+    sse.append(km.inertia_)
+plt.xlabel('K')
+plt.ylabel('SSE (Sum Squared Error)')
+plt.plot(k_rng, sse)
 {% endhighlight %}
 
-Agora que a função está criada, vamos testá-la. Para isso iremos passar 3 valores para a função <strong>fuzzying</strong> e verificar a sua saída.
+O resultado após a execução do código gerou a imagem a seguir:
+
+<img class="img-responsive center-block thumbnail" src="/img/cotovelo.png" alt="cotovelo" style="width:70%"/>
+
+De acordo com a imagem, a curva fica acentuada quando o valor é igual a 3. Iremos utilizar esse parâmetro para treinar o nosso modelo.
+
+Vamor plotar a relação Idade x Marketing para visualizar os registros antes da clusterização. Para isso basta executar o seguinte código:
 
 {% highlight python %}
-fuzzying([0.2, 0.56, 0.3, 0.8])
+plt.scatter(df['Age'], df['Marketing'])
 {% endhighlight %}
 
-```
-array([0.99051683, 0.18656282, 0.08544104, 0.38156028, 0.77825999,
-       0.90014951, 0.95995498, 0.53004173, 0.22417374, 0.05538159,
-       0.0558928 , 0.77485862])
-```
+Mais fácil impossível! E o resultado apresentado é:
 
-Ótimo! A função está funcionando conforme o esperado.
+<img class="img-responsive center-block thumbnail" src="/img/plotSemCluster.png" alt="Plot-Sem-Cluster" style="width:70%"/>
 
-Agora iremos criar uma outra função para utilizar o algoritmo Perceptron Multicamadas da biblioteca do Scikit-Learn:
+Agora que temos o valor de K, vamos treinar o nosso modelo executando o código a seguir.
 
 {% highlight python %}
-def gerar_mlp(neuronios, taxa_aprendizado, max_iteracoes):
-    mlp = MLPRegressor(
-        solver='adam',
-        hidden_layer_sizes=(neuronios,),
-        random_state=1,
-        learning_rate='constant',
-        learning_rate_init=taxa_aprendizado,
-        max_iter=max_iteracoes,
-        activation='logistic',
-        momentum=0.1
-    )
-    return mlp
+km = KMeans(n_clusters=3)
+y_predict = km.fit_predict(df[['Age','Marketing']])
+df['ypred'] = y_predict
 {% endhighlight %}
 
-Utilizando a função de fuzzificação, iremos processar todo o conjunto de dados da Iris:
+Em seguida, vamor gerar um gráfico de dispersão para visualizar os clusters.
 
 {% highlight python %}
-entradas_fuzzy = []
-for i in range(150):
-    entradas_fuzzy.append(fuzzying(entrada[i,:]))
-
-entradas_fuzzy = np.asarray(entradas_fuzzy)
-entradas_fuzzy
+cores = np.array(['green', 'red', 'blue'])
+plt.scatter(x=df['Age'], 
+            y=df['Marketing'], 
+            c=cores[df.ypred], s=50)
 {% endhighlight %}
 
-E transforma os vetores de saída para o tipo de dado <strong>float</strong>, mudando de [-1,0,1] em [0,0.5,1]:
+E o gráfico gerado com 3 clusters ficou de acordo com o esperado.
 
-{% highlight python %}
-saida = np.arange(150, dtype=float)
-for i in range(150):
-    if i <50:
-        saida[i] = 0
-    if 50 <= i < 100:
-        saida[i] = 0.5
-    if 100 <= i < 150:
-        saida[i] = 1
-saida = saida.reshape(150,1)
-{% endhighlight %}
+<img class="img-responsive center-block thumbnail" src="/img/plotCluster.png" alt="Plot-Cluster" style="width:70%"/>
 
-Em seguida, como o objetivo é que a saída da Perceptron Multicamadas seja um valor processado pela Lógica Nebulosa, uma vez que teremos um único neurônio na camada de saida (dando uma resposta numérica, assim como uma regressão), precisamos criar uma função para indicar as faixas de resposta para cada uma das classes:
+A próxima parte da análise requer um pouco de intuição, uma vez que precisamos interpretar o que os agrupamentos significa. Podemos ver que o segmento representado pelo agrupamento com a cor azul possui registros na faixa etária de 20 a 30 anos e com um rendimento de Marketing de até 60 milhões de doláres no ano de 2020. Na minha opinião esse agrupamento representa os atletas que estão se estabelecendo como grandes estrelas dentro e fora das quadras, podendo vir a ser tornarem grandes garotos(as) propaganda de produtos e marcas, sejam elas ligada ao mundo dos esportes ou não.
 
-{% highlight python %}
-def obter_classe(respostas, valor_menor, valor_maior):
-    label_previsto = []
-    for i in respostas:
-        if i < valor_menor:
-            label_previsto.append('Setosa')
-        elif i >= valor_menor and i <= valor_maior:
-            label_previsto.append('Versicolor')
-        else:
-            label_previsto.append('Virginica')
-    return label_previsto
-{% endhighlight %}
+o segmento na cor verde possui menos elementos em relação ao grupo anterior e é composto por atletas mais experientes, chegando até a idade máxima aferida nesse conjunto de dados coletado de 50 anos. Os valores anuais recebidos com Marketing também não extrapolam o montante de 60 milhões de doláres no ano de 2020. 
 
-Outro passo importante é criar uma última função para mudar as saídas de [0,0.5,1] para ['Setosa', 'Versicolor', 'Virginica']:
-
-{% highlight python %}
-def traduz_saida(saidas):
-    resposta = []
-    for i in saidas:
-        if i == 0:
-            resposta.append('Setosa')
-        elif i == 0.5:
-            resposta.append('Versicolor')
-        else:
-            resposta.append('Virginica')
-    return resposta
-{% endhighlight %}
-
-Finalmente, depois de tantas funções e transformações, podemos aplicaar o algoritmo Perceptron Multicamadas utilizando uma validação cruzada de tamanho três e gerando um relatório de desempenho para cada uma das interações:
-
-{% highlight python %}
-skf = StratifiedShuffleSplit(n_splits=3, test_size=0.25)    
-for train_idx, test_idx in skf.split(entradas_fuzzy,saida.ravel()):
-    x_treinamento = entradas_fuzzy[train_idx]
-    y_treinamento = saida[train_idx]
-    x_teste = entradas_fuzzy[test_idx]
-    y_teste = saida[test_idx]
-    mlp = gerar_mlp(20, 0.01, 100)
-    mlp.fit(x_treinamento, y_treinamento.ravel())
-    previsao = obter_classe(mlp.predict(x_teste), 0.25, 0.8)
-    print('######################################################')
-    print(classification_report(traduz_saida(y_teste), previsao))
-{% endhighlight %}
-
-A saída gerada será algo semelhante com o relatório a seguir:
-
-```
-######################################################
-              precision    recall  f1-score   support
-
-      Setosa       1.00      1.00      1.00        13
-  Versicolor       0.83      0.83      0.83        12
-   Virginica       0.85      0.85      0.85        13
-
-    accuracy                           0.89        38
-   macro avg       0.89      0.89      0.89        38
-weighted avg       0.89      0.89      0.89        38
-
-######################################################
-              precision    recall  f1-score   support
-
-      Setosa       0.92      0.92      0.92        12
-  Versicolor       0.85      0.85      0.85        13
-   Virginica       0.92      0.92      0.92        13
-
-    accuracy                           0.89        38
-   macro avg       0.90      0.90      0.90        38
-weighted avg       0.89      0.89      0.89        38
-
-######################################################
-              precision    recall  f1-score   support
-
-      Setosa       0.92      0.92      0.92        12
-  Versicolor       0.86      0.92      0.89        13
-   Virginica       1.00      0.92      0.96        13
-
-    accuracy                           0.92        38
-   macro avg       0.92      0.92      0.92        38
-weighted avg       0.92      0.92      0.92        38
-```
-
-Utilizando a Lógica Nebulosa com o algoritmo Perceptron Multicamadas foi obtido uma precisão entre 89% e 92%. Um resultado que considero muito bom para esse conjunto de dados.
+Finalmente, o agrupamento vermelho (que deve ser o sonho de todo atleta) possui apenas 6 registros, sendo composto pelos atletas com contratos de Marketing superiores a 60 milhões de doláres no ano de 2020 e, curiosamente, com elementos na faixa etária de 27 a 38 anos.
 
 ## Considerações Finais <a name="fim"></a>
 
-Mais uma vez utilizamos o conjunto de dados de flores Iris para apresentar outros dois importantes modelos de aprendizagem de máquina bastante utilizado pelos Cientistas de Dados. Obtivemos um resultado entre 89% e 92% de precisão. Como sempre, recomenda-se conhecer o funcionamento e características desses modelos para tirar proveitos das suas vantagens e conhecer as suas limitações. Mesmo com tantas etapas de transformação dos dados e fuzzificação, a Lógica Nebulosa é muito aplicada e apresenta uma série de vantagens, conforme apresentado na sua descrição.
+Após toda essa análise, é importante mostrar como a informação adquirida no processo pode ser útil para entender melhor a importancia do Marketing e a relação da idade com a imagem dos atletas. Para complementar esse estudo, aumentar o conjunto de dados poderia apresentar outras informações relevantes que são foram observadas devido a limitação da quantidad de registros. Essa tarefa pode ser realizada num futuro próximo.
 
 Como sempre sugiro, você também pode aplicar esse modelo em outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
 
