@@ -14,7 +14,7 @@ description: O perfil de consumo pode apresentar características importantes do
 
 ## Conteúdo
 1. [Introdução](#intro) 
-2. [Análise Exploratória](#explo)
+2. [Análise Exploratória](#exemplo)
 3. [Análise de Componentes Principais](#PCA)
 4. [Clusterização](#GMM)
 5. [Referências](#ref)
@@ -23,7 +23,7 @@ description: O perfil de consumo pode apresentar características importantes do
 
 Vamos analisar gastos de consumidores para entender os padrões e estrutura de consumo. [Os dados](https://archive.ics.uci.edu/ml/datasets/Wholesale+customers) são de um atacadista que contabilizou gastos de consumidores em seis categorias: frescos (`Fresh`), leite (`Milk`), mercearia (`Grocery`), congelado (`Frozen`), detergente e papel (`Detergents_Paper`) e Delicatessen (`Delicatessen`). O objetivo aqui será entender melhor a estrutura desses gastos, como eles se relacionam e se há algum padrão que pode ser explorado para otimizar as vendas.
 
-# Análise Exploratória <a name="explo"></a>
+# Análise Exploratória <a name="exemplo"></a>
 
 Em primeiro lugar, vamos explorar algumas estatísticas simples dos nossos dados, tais como média de gastos por produto, desvio padrão e quantis dos dados.
 

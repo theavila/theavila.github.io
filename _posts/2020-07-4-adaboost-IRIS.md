@@ -16,7 +16,7 @@ header-img: "img/iris.png"
 0. [Adaboost](#adaboost)
 1. [Conjunto de Dados](#dados)
 2. [Pré-processamento dos registros](#pre)
-3. [Classificação com Adaboost](#adaboost)
+3. [Classificação com Adaboost](#treino)
 4. [Considerações Finais](#fim)
 
 ## Classificador Adaboost <a name="adaboost"></a>
@@ -100,7 +100,7 @@ print(clf.best_params_)
 
 Com esses valores de ajuste, foi obtido 96,66% de precisão.
 
-## Classificação com Adaboost <a name="adaboost"></a>
+## Classificação com Adaboost <a name="treino"></a>
 
 Para criar o nosso modelo de classificação utilizando Adaboost, iremos primeiramente importar a biblioteca do Scikit-learn:
 

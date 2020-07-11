@@ -15,7 +15,7 @@ header-img: "img/fuzzy.png"
 
 0. [Características dos Modelos Lógica Nebulosa e Perceptron multicamadas](#modelos)
 1. [Conjunto de Dados](#dados)
-2. [Criando o Modelo de Treinamento](#modelo)
+2. [Criando o Modelo de Treinamento](#treino)
 3. [Considerações Finais](#fim)
 
 ## Características dos Modelos Lógica Nebulosa e Perceptron multicamadas <a name="modelos"></a>
@@ -59,7 +59,7 @@ O algoritmo do Perceptron Multicamadas é composto de 4 etapas:
 * Atualizar os pesos dos neurônios das camadas de saída e oculta
 
 4ª Etapa: Iteração
-* Repetir o processo a partir do passo 2 até que o critério de erro seja satisfeito
+* Repetir o processo a partir da 2ª etapa até que o critério de erro seja satisfeito
 
 Para esse exemplo, primeiramente iremos importar as bibliotecas básicas que serão utilizadas nesse exemplo.
 
@@ -132,7 +132,7 @@ De acordo com a imagem gerada, temos a distribuição gaussiana (também conheci
 
 Nos próximas etapas iremos aplicar os algoritmos de Lógica Nebulosa e Perceptron Multicamadas para classificar o conjunto de dados.
 
-## Criando o Modelo de Treinamento <a name="modelo"></a>
+## Criando o Modelo de Treinamento <a name="treino"></a>
 
 Para utlizar o algoritmo de Lógica Nebulosa, fuzzificar  as entradas. Para isso iremos criar uma função para passar uma amostra da base de dados e, para cada atributo da amostra, iremos transformá-lo em outros 3 atributos (de acordo com o grau de pertinência para cada uma das 3 classes).
 
