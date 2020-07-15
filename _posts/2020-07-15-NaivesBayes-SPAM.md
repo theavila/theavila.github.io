@@ -1,296 +1,175 @@
 ---
 layout: tutorial
 comments: true
-title: Lógica Nebulosa e Perceptron multicamadas 
-subtitle: "Classificação de Flores Iris com Fuzzy Logic e MLP"
+title: Classificador Probabilístico com o Algoritmo Naïve Bayes
+subtitle: "Classificação de SPAM"
 lang: pt
-date: 2020-07-10
-true-dt: 2020-07-10
+date: 2020-07-15
+true-dt: 2020-07-15
 tags: [Tutorial,python,Jupyter]
 author: "Ricardo Avila"
 comments: true
-header-img: "img/fuzzy.png"
+header-img: "img/spam.png"
 ---
 ## Conteúdo
 
-0. [Características dos Modelos Lógica Nebulosa e Perceptron multicamadas](#modelos)
+0. [Características do Algoritmo Naïve Bayes](#modelo)
 1. [Conjunto de Dados](#dados)
 2. [Criando o Modelo de Treinamento](#treino)
 3. [Considerações Finais](#fim)
 
-## Características dos Modelos Lógica Nebulosa e Perceptron multicamadas <a name="modelos"></a>
+## Características do Algoritmo Naïve Bayes <a name="modelo"></a>
 
-O modelo conhecido por Lógica Nebulosa, Lógica Difusa ou Lógica Fuzzy é uma extensão da lógica boolena no qual um valor lógico difuso é um valor qualquer no intervalo de valores entre 0 e 1. Os modelos que utilizam a lógica Nebulosa permitem que estados indeterminados possam ser tratados por dispositivos de controle. Desse modo, é possível avaliar conceitos não-quantificáveis tais como:
+O modelo probabilístico conhecido como Teorema de Bayes ou simplesmente chamado de Algoritmo de Naïves Bayes na área de Ciência de Dados. O Teorema de Bayes foi desenvolvido por Thomas Bayes, um pastor presbiteriano e matemático inglês que foi membro da Royal Society. O Pastor Bayes desenvolveu o algoritmo com o objetivo de tentar provar a existência de Deus. Embora não tenha provado a existência de Deus, o teorema de Bayes se mostrou útil de outras maneiras. (Obs.: A minha fé crê na existência de Deus muito mais que no acaso evolutivo uma sopa primordial. Cientistas de plantão que me perdoem, mas a criação não anula a evolução e vice-versa.)
+ 
+O Teorema de Bayes auxilia os cientistas e pesquisadores a avaliar a probabilidade de que algo seja verdade com base em novos dados. Por exemplo, os médicos podem usar o resultado de um exame de mamografia, que às vezes está errado, para avaliar se devem revisar a avaliação de que uma paciente tem câncer de mama ou não. A fórmula mostra que o grau de alteração depende da precisão do teste.
 
-* avaliar a temperatura (quente, morno, frio, etc.)
-* sentimento de felicidade(feliz, apático, triste, neutro, etc.)
-* velocidade (devagar, rápido, lento, etc.)
+Por ser de fácil implementação e baixo custo computacional, possui um desempenho considerado melhor do que outros classificadores. Outra característica importante é precisar de um número menor de dados de teste para executar as classificações e alcançar uma boa precisão.
 
-A Lógica Nebulosa é capaz de capturar informações vagas, normalmente descritas em uma linguagem natural, convertendo-as para um formato numérico, de fácil manipulação pelos computadores atuais. Antes do surgimento da Lógica Nebulosa a manipulação de informações vagas não eram possiveis de serem processadas. Dentre suas vantagens, podemos destacar:
+O fato de ser chamado de “naïve” (ingênuo) se leva ao fato do algoritmo desconsiderar a correlação entre as variáveis (features). Por exemplo, se determinada fruta é considerada uma <strong>Laranja</strong> se ela for da cor <em>laranja</em>, <em>redonda</em> e possui <em>100gr de peso</em>, o algoritmo não considerará a correlação entre esses fatores, tratando cada um deles de forma independente.
 
-* Uso de variáveis liguísticas, próximas do pensamento humano;
-* Requer poucas regras, valores e decisões;
-* Simplifica a solução de problemas e a aquisição da base de conhecimento;
-* Mais variáveis observáveis podem ser valoradas;
-* Fácil de entender, manter e testar.
+Nesse exemplo iremos utilizar a biblioteca Scikit Learn (ou sklearn). No Sklearn o algoritmo Naïve Bayes é implementado de 3 formas:
 
-Como nem tudo são flores, a Lógica Nebulosa necessita de várias etapas para simulão e testes. Dependendo da base de dados, o modelo pode demorar para aprender e podem ocorrer dificuldades para estabelecer as regras corretamente. Essas dificuldades são contornadas quando existe um especialista no domínio para auxiliar na criação das regras e interpretação dos resultados.
+* Gaussian
+* Multinomial
+* Bernoulli
 
-O Perceptron Multicamadas (ou MLP - Multi Layer Perceptron) é uma rede neural que possui uma ou mais camadas ocultas e um número indeterminado de neurônios. A camada oculta possui esse nome porque não é possível prever a saída desejada que serão geradas nas camadas intermediárias. Para treinar um Perceptron Multicamadas o algoritmo normalmente utilizado é o de retropropagação (Backpropagation).
-
-<img class="img-responsive center-block thumbnail" src="/img/MLP.png" alt="Perceptron-Multicamadas" style="width:70%"/>
-
-Diferentemente de outras redes neurais como o Perceptron e Adaline, onde existe apenas um único neurônio de saída Y, o Perceptron Multicamadas pode relacionar o conhecimento a vários neurônios de saída.
-
-O algoritmo do Perceptron Multicamadas é composto de 4 etapas:
-
-1ª Etapa: Inicialização
-* Atribuir valores aleatórios para os pesos e limites
-* Escolher os valores iniciais que influenciam no comportamento da rede
-* Na ausência de conhecimento prévio quanto aos pesos e limites que serão utilizados, recomenda-se utilizar valores iniciais aleatórios e baixos distribuídos de forma uniforme
-
-2ª Etapa: Ativação
-* Calcular os valores dos neurônios da camada oculta
-* Calcular os valores dos neurônios da camada de saída
-
-3ª Etapa: Treinamento dos pesos
-* Calcular os erros dos neurônios das camadas de saída e oculta
-* Calcular a correção dos pesos
-* Atualizar os pesos dos neurônios das camadas de saída e oculta
-
-4ª Etapa: Iteração
-* Repetir o processo a partir da 2ª etapa até que o critério de erro seja satisfeito
+Cada implementação é utilizada para objetivos diferentes.
 
 Para esse exemplo, primeiramente iremos importar as bibliotecas básicas que serão utilizadas nesse exemplo.
 
 {% highlight python %}
 import numpy as np
-from sklearn import datasets
-from sklearn import preprocessing
-
-import skfuzzy as fuzz
-from skfuzzy import control as ctrl
-from sklearn.neural_network import MLPRegressor
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.metrics import classification_report
-
-import matplotlib.pyplot as plt
-%matplotlib inline
+from sklearn.metrics import accuracy_score
 {% endhighlight %}
 
-Além da biblioteca NumPy, também iremos utilizar o Scikit-learn para utilizar os algoritmos de Lógica Nebulosa e Perceptron Multicamadas e a biblioteca MatPlotLib para gerar os gráficos.
+Além da biblioteca NumPy, também iremos utilizar o Scikit-learn para utilizar o algoritmo Naïve Bayes em suas 3 formas.
 
 ## Conjunto de Dados <a name="dados"></a>
 
-Para esse exemplo, utilizei mais uma vez o conjunto de dados Iris. Esse conjunto possui 150 registros de 3 espécies diferentes de flor Iris: Versicolor, Setosa e Virginica. Cada registro do conjunto possui cinco características: SepalLength (Comprimento da Sépala), SepalWidth (Largura da Sépala), PetalLength (Comprimento da Pétala), PetalWidth (Largura da Pétala) e class (Classe).
+O conjunto de dados que será utilizado nesse exemplo contém 48 atributos reais contínuos (com valores de 0, 100) do tipo word_freq_WORD = porcentagem de palavras no e-mail que correspondem a WORD, ou seja, 100<strong>*</strong>(número de vezes que a WORD aparece no e-mail)<strong>/</strong>número total de palavras no e-mail. Uma WORD ou "palavra" neste caso é qualquer sequência de caracteres alfanuméricos delimitada por caracteres não alfanuméricos ou fim de sequência.
 
-Dataset disponível em: <a href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">https://archive.ics.uci.edu/ml/datasets/Iris</a>
+Características dos atributos:
+* 6 atributos reais contínuos (0,100) do tipo char_freq_CHAR = porcentagem de caracteres no e-mail que correspondem a CHAR, ou seja, 100<strong>*</strong>(número de ocorrências de CHAR)<strong>/</strong>total de caracteres no email
+* 1 atributo real contínuo do tipo capital_run_length_average = comprimento médio de sequências ininterruptas de letras maiúsculas
+* 1 atributo inteiro contínuo do tipo capital_run_length_longest = comprimento da maior sequência ininterrupta de letras maiúsculas
+* 1 atributo inteiro contínuo do tipo capital_run_length_total = soma do comprimento das sequências ininterruptas de letras maiúsculas = número total de letras maiúsculas no e-mail
+* 1 atributo de classe nominal {0,1} do tipo spam = indica se o e-mail foi considerado spam (1) ou não (0), ou seja, e-mail comercial não solicitado.
 
-{% highlight python %}
-iris = datasets.load_iris()
-dados = iris.data
-{% endhighlight %}
-
-<img class="img-responsive center-block thumbnail" src="/img/iris-head.png" alt="iris-head" style="width:70%"/>
-
-Precisamos fuzzyficar cada atributo para obter o grau de pertinencia de cada característica as classes do conjunto de dados IRIS. Para criar esse range e as faixas de pertinencia foi utilizando a transformação gaussiana.
-
-Para normalizar as entradas executamos o passo seguinte:
+Dataset disponível em: <a href="https://archive.ics.uci.edu/ml/datasets/spambase" target="_blank">https://archive.ics.uci.edu/ml/datasets/spambase</a>
 
 {% highlight python %}
-preprocessar = preprocessing.MinMaxScaler()
-entrada = preprocessar.fit_transform(dados)
+dataset = np.loadtxt('spam.csv', delimiter=',')
+print(dataset[0])
 {% endhighlight %}
 
-Em seguida calculamos o range, a média e o desvio padrão de cada uma das classes:
-
-{% highlight python %}
-universo = np.arange(0, 1, 0.01)
-media_setosa = np.mean(entrada[0:50,:])
-desvio_setosa = np.std(entrada[0:50,:])
-media_versicolor = np.mean(entrada[50:100,:])
-desvio_versicolor = np.std(entrada[50:100,:])
-media_virginica = np.mean(entrada[100:150,:])
-desvio_virginica = np.std(entrada[100:150,:])
-{% endhighlight %}
-
-Para finalmente aplicar a transformação gaussiana:
-
-{% highlight python %}
-fuzzy = ctrl.Antecedent(universo, 'Lógica Nebulosa')
-fuzzy['Setosa'] = fuzz.gaussmf(universo, media_setosa, desvio_setosa)
-fuzzy['Versicolor'] = fuzz.gaussmf(universo, media_versicolor, desvio_versicolor)
-fuzzy['Virginica'] = fuzz.gaussmf(universo, media_virginica, desvio_virginica)
-fuzzy.view()
-plt.show()
-{% endhighlight %}
-
-<img class="img-responsive center-block thumbnail" src="/img/FuzzyPlot.png" alt="Fuzzy-plot" style="width:70%"/>
-
-De acordo com a imagem gerada, temos a distribuição gaussiana (também conhecida por distribuição normal), em formato de uma curva simétrica em torno do seu ponto médio, apresentando assim seu famoso formato de sino. Como a base de dados é distribuída em subconjuntos de 50 isntâncias para cada classe de flor do tipo Iris, cada curva de distribuição normal representa uma das faixas de valores de uma certa probabilidade de ocorrência.
-
-Nos próximas etapas iremos aplicar os algoritmos de Lógica Nebulosa e Perceptron Multicamadas para classificar o conjunto de dados.
+<img class="img-responsive center-block thumbnail" src="/img/spamHEAD.png" alt="spam-head" style="width:85%"/>
 
 ## Criando o Modelo de Treinamento <a name="treino"></a>
 
-Para utlizar o algoritmo de Lógica Nebulosa, fuzzificar  as entradas. Para isso iremos criar uma função para passar uma amostra da base de dados e, para cada atributo da amostra, iremos transformá-lo em outros 3 atributos (de acordo com o grau de pertinência para cada uma das 3 classes).
+O primeiro passo após carregar o conjunto de dados é criar os conjuntos de treino e teste. Para isso, executamos o comando a seguir:
 
 {% highlight python %}
-def fuzzying(vetor):
-    retorno = []
-    for i in range(len(vetor)):
-        retorno.append(fuzz.interp_membership(universo, fuzz.gaussmf(universo, media_setosa, desvio_setosa), vetor[i]))
-        retorno.append(fuzz.interp_membership(universo, fuzz.gaussmf(universo, media_versicolor, desvio_versicolor), vetor[i]))
-        retorno.append(fuzz.interp_membership(universo, fuzz.gaussmf(universo, media_virginica, desvio_virginica), vetor[i]))
-    return np.asarray(retorno).T
+X = dataset[:, 0:48]
+y = dataset[:, -1]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = .40, random_state = 17)
 {% endhighlight %}
 
-Agora que a função está criada, vamos testá-la. Para isso iremos passar 3 valores para a função <strong>fuzzying</strong> e verificar a sua saída.
+Como o conjunto de dados é pequeno, optamos por selecionar 40% para teste, o que pode ser ajustado caso os resultados de precisão não fiquem bons. Nesse caso, esse valor foi determinado após algumas iterações.
+
+O próximo passo é executar os testes e treinos utilizando os algoritmos Naïve Bayes implementados no Sklearn em suas 3 formas. 
+
+Primeiramente o MultinomialNB, que é adequado para classificação com recursos discretos (por exemplo, a contagem de palavras para classificação de texto).
 
 {% highlight python %}
-fuzzying([0.2, 0.56, 0.3, 0.8])
+MultiNB = MultinomialNB()
+MultiNB.fit(X_train, y_train)
+print(MultiNB)
+
+y_expect = y_test
+y_pred = MultiNB.predict(X_test)
+print(accuracy_score(y_expect, y_pred))
 {% endhighlight %}
+
+E a saída obtida foi:
 
 ```
-array([0.99051683, 0.18656282, 0.08544104, 0.38156028, 0.77825999,
-       0.90014951, 0.95995498, 0.53004173, 0.22417374, 0.05538159,
-       0.0558928 , 0.77485862])
+MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True)
+0.8750678978815861
 ```
 
-Ótimo! A função está funcionando conforme o esperado.
+Nada mal! Esse modelo obteve 87,50% de precisão.
 
-Agora iremos criar uma outra função para utilizar o algoritmo Perceptron Multicamadas da biblioteca do Scikit-Learn:
-
-{% highlight python %}
-def gerar_mlp(neuronios, taxa_aprendizado, max_iteracoes):
-    mlp = MLPRegressor(
-        solver='adam',
-        hidden_layer_sizes=(neuronios,),
-        random_state=1,
-        learning_rate='constant',
-        learning_rate_init=taxa_aprendizado,
-        max_iter=max_iteracoes,
-        activation='logistic',
-        momentum=0.1
-    )
-    return mlp
-{% endhighlight %}
-
-Utilizando a função de fuzzificação, iremos processar todo o conjunto de dados da Iris:
+Vamos para a segunda implementação com BernoulliNB, que também é um classificador indicado para dados discretos. A sua diferença é ter sido projetado para recursos binários/booleanos, enquanto que o MultinomialNB trabalha com contagens de ocorrências.
 
 {% highlight python %}
-entradas_fuzzy = []
-for i in range(150):
-    entradas_fuzzy.append(fuzzying(entrada[i,:]))
+BernNB = BernoulliNB(binarize = 0.0)
+BernNB.fit(X_train, y_train)
+print(BernNB)
 
-entradas_fuzzy = np.asarray(entradas_fuzzy)
-entradas_fuzzy
+y_expect = y_test
+y_pred = BernNB.predict(X_test)
+print(accuracy_score(y_expect, y_pred))
 {% endhighlight %}
 
-E transforma os vetores de saída para o tipo de dado <strong>float</strong>, mudando de [-1,0,1] em [0,0.5,1]:
-
-{% highlight python %}
-saida = np.arange(150, dtype=float)
-for i in range(150):
-    if i <50:
-        saida[i] = 0
-    if 50 <= i < 100:
-        saida[i] = 0.5
-    if 100 <= i < 150:
-        saida[i] = 1
-saida = saida.reshape(150,1)
-{% endhighlight %}
-
-Em seguida, como o objetivo é que a saída da Perceptron Multicamadas seja um valor processado pela Lógica Nebulosa, uma vez que teremos um único neurônio na camada de saida (dando uma resposta numérica, assim como uma regressão), precisamos criar uma função para indicar as faixas de resposta para cada uma das classes:
-
-{% highlight python %}
-def obter_classe(respostas, valor_menor, valor_maior):
-    label_previsto = []
-    for i in respostas:
-        if i < valor_menor:
-            label_previsto.append('Setosa')
-        elif i >= valor_menor and i <= valor_maior:
-            label_previsto.append('Versicolor')
-        else:
-            label_previsto.append('Virginica')
-    return label_previsto
-{% endhighlight %}
-
-Outro passo importante é criar uma última função para mudar as saídas de [0,0.5,1] para ['Setosa', 'Versicolor', 'Virginica']:
-
-{% highlight python %}
-def traduz_saida(saidas):
-    resposta = []
-    for i in saidas:
-        if i == 0:
-            resposta.append('Setosa')
-        elif i == 0.5:
-            resposta.append('Versicolor')
-        else:
-            resposta.append('Virginica')
-    return resposta
-{% endhighlight %}
-
-Finalmente, depois de tantas funções e transformações, podemos aplicaar o algoritmo Perceptron Multicamadas utilizando uma validação cruzada de tamanho três e gerando um relatório de desempenho para cada uma das interações:
-
-{% highlight python %}
-skf = StratifiedShuffleSplit(n_splits=3, test_size=0.25)    
-for train_idx, test_idx in skf.split(entradas_fuzzy,saida.ravel()):
-    x_treinamento = entradas_fuzzy[train_idx]
-    y_treinamento = saida[train_idx]
-    x_teste = entradas_fuzzy[test_idx]
-    y_teste = saida[test_idx]
-    mlp = gerar_mlp(20, 0.01, 100)
-    mlp.fit(x_treinamento, y_treinamento.ravel())
-    previsao = obter_classe(mlp.predict(x_teste), 0.25, 0.8)
-    print('######################################################')
-    print(classification_report(traduz_saida(y_teste), previsao))
-{% endhighlight %}
-
-A saída gerada será algo semelhante com o relatório a seguir:
+Com essa abordagem, a saída obtida foi:
 
 ```
-######################################################
-              precision    recall  f1-score   support
-
-      Setosa       1.00      1.00      1.00        13
-  Versicolor       0.83      0.83      0.83        12
-   Virginica       0.85      0.85      0.85        13
-
-    accuracy                           0.89        38
-   macro avg       0.89      0.89      0.89        38
-weighted avg       0.89      0.89      0.89        38
-
-######################################################
-              precision    recall  f1-score   support
-
-      Setosa       0.92      0.92      0.92        12
-  Versicolor       0.85      0.85      0.85        13
-   Virginica       0.92      0.92      0.92        13
-
-    accuracy                           0.89        38
-   macro avg       0.90      0.90      0.90        38
-weighted avg       0.89      0.89      0.89        38
-
-######################################################
-              precision    recall  f1-score   support
-
-      Setosa       0.92      0.92      0.92        12
-  Versicolor       0.86      0.92      0.89        13
-   Virginica       1.00      0.92      0.96        13
-
-    accuracy                           0.92        38
-   macro avg       0.92      0.92      0.92        38
-weighted avg       0.92      0.92      0.92        38
+BernoulliNB(alpha=1.0, binarize=0.0, class_prior=None, fit_prior=True)
+0.8837588267246062
 ```
 
-Utilizando a Lógica Nebulosa com o algoritmo Perceptron Multicamadas foi obtido uma precisão entre 89% e 92%. Um resultado que considero muito bom para esse conjunto de dados.
+Esse resultado foi um pouco melhor. Claramente por causa da base possuir muitos dados discretos com valores binários/booleanos. ;)
+
+E finalmente, vamos utilizar a implementação com GaussianNB. Esse método executa chamadas recursivas várias vezes em diferentes partes de um conjunto de dados. Isso é especialmente útil quando o conjunto de dados é muito grande para caber na memória de uma só vez. Em nosso caso, por ser um conjunto de dados pequeno, iremos executar apenas para avaliar o resultado.
+
+{% highlight python %}
+GausNB = GaussianNB()
+GausNB.fit(X_train, y_train)
+print(GausNB)
+
+y_expect = y_test
+y_pred = GausNB.predict(X_test)
+print(accuracy_score(y_expect, y_pred))
+{% endhighlight %}
+
+E o resultado obtido foi:
+
+```
+GaussianNB(priors=None, var_smoothing=1e-09)
+0.8126018468223791
+```
+
+Conforme esperado, a implementação com GaussianNB obteve o resultado mais baixo dentre os modelos disponíveis de algoritmos Naïve Bayes implementados no Sklearn.
+
+Vamos executar apenas mais um ajuste no modelo que obteve o melhor resultado, no caso o BernoulliNB, para verificar se conseguimos obter uma melhor classificação. Iremos ajustar o 
+parâmetro binarize que é relativo ao limite para binarização (mapeamento para booleanos) de recursos de amostra. Anteriormente havíamos definido como 0, no qual presume-se que a entrada já consista em vetores binários. Vamos ajustar para 0.2 e verificar o que acontece.
+
+{% highlight python %}
+BernNB = BernoulliNB(binarize = 0.2)
+BernNB.fit(X_train, y_train)
+print(BernNB)
+
+y_expect = y_test
+y_pred = BernNB.predict(X_test)
+print(accuracy_score(y_expect, y_pred))
+{% endhighlight %}
+
+E finalmente, o melhor resultado obtido foi:
+
+```
+BernoulliNB(alpha=1.0, binarize=0.2, class_prior=None, fit_prior=True)
+0.8935361216730038
+```
 
 ## Considerações Finais <a name="fim"></a>
 
-Mais uma vez utilizamos o conjunto de dados de flores Iris para apresentar outros dois importantes modelos de aprendizagem de máquina bastante utilizado pelos Cientistas de Dados. Obtivemos um resultado entre 89% e 92% de precisão. Como sempre, recomenda-se conhecer o funcionamento e características desses modelos para tirar proveitos das suas vantagens e conhecer as suas limitações. Mesmo com tantas etapas de transformação dos dados e fuzzificação, a Lógica Nebulosa é muito aplicada e apresenta uma série de vantagens, conforme apresentado na sua descrição.
+Não é atôa que o algoritmo Naïves Bayes é um dos modelos de aprendizagem de máquina mais utilizados pelos Cientistas de Dados. Caso o problema que você esteja trabalhando seja a classificação de textos ou algo parecido, esse modelo pode ser uma das melhores alternativas. Sendo de fávil compreensão e implementação, vale a pena comparar os resultados do Naïves Bayes. Obviamente, caso a relação entre as features sejam importantes, o algorirmo Naïves Bayes não é o mais indicado, pois pode falhar na predição de uma nova informação.
 
-Como sempre sugiro, você também pode aplicar esse modelo em outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
+Fica a sugestão de aplicar esse modelo em outras bases disponibilizadas na Internet, bastando fazer alguns ajustes caso seja necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.

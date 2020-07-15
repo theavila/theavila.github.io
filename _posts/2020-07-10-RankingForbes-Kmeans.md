@@ -214,6 +214,6 @@ Finalmente, o agrupamento vermelho (que deve ser o sonho de todo atleta) possui 
 
 Após toda essa análise, é importante mostrar como a informação adquirida no processo pode ser útil para entender melhor a importancia do Marketing e a relação da idade com a imagem dos atletas. Para complementar esse estudo, aumentar o conjunto de dados poderia apresentar outras informações relevantes que são foram observadas devido a limitação da quantidad de registros. Essa tarefa pode ser realizada num futuro próximo.
 
-Como sempre sugiro, você também pode aplicar esse modelo em outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
+Como sempre sugiro, você também pode aplicar esse modelo em outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.

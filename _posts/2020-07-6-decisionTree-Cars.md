@@ -118,6 +118,6 @@ Outro ponto importante é não pensar que para encontrar o seu objetivo bastava 
 
 ## Considerações Finais <a name="fim"></a>
 
-Mesmo sendo um conjunto de dados simples, esse exemplo pode ser aplicado a outras bases disponibilizadas na Internet. Os conceitos serão os mesmos, bastando adaptar o código aqui aplicado. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
+Mesmo sendo um conjunto de dados simples, esse exemplo pode ser aplicado a outras bases disponibilizadas na Internet. Os conceitos serão os mesmos, bastando adaptar o código aqui aplicado. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.

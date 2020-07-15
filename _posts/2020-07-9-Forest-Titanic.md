@@ -157,6 +157,6 @@ E com o modelo Floresta Aleatória foi obtido 84,75% de precisão.
 
 Nesse tutorial utilizamos um dos conjuntos de dados mais trágicos da história. Obtivemos um resultado de 84,75% de precisão com um dos modelos de classificação e regressão mais utilizado pelos Cientistas de Dados. É importante conhecer o seu funcionamento e características para tirar proveitos das suas vantagens e conhecer as suas limitações. Por ser um modelo dericado de Árvores de Decisão, também possuí limitações para lidar com dados com variadas escalabilidades, o que requer muito tempo de pré-processamento dos dados.
 
-Como sempre sugiro, você também pode aplicar esse modelo em outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
+Como sempre sugiro, você também pode aplicar esse modelo em outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.

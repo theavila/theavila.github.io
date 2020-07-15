@@ -237,6 +237,6 @@ E finalmente, o modelo SVM tamb+em obteve 88% de precisão.
 
 ## Considerações Finais <a name="fim"></a>
 
-Nesse tutorial utilizamos 3 modelos diferentes para classificar vinhos baseados em seus atributos físicos-químicos. Obtivemos bons resultados de precisão 88% utilizando Random Forest e SVM. Esses modelos podem ser aplicados a outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
+Nesse tutorial utilizamos 3 modelos diferentes para classificar vinhos baseados em seus atributos físicos-químicos. Obtivemos bons resultados de precisão 88% utilizando Random Forest e SVM. Esses modelos podem ser aplicados a outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.

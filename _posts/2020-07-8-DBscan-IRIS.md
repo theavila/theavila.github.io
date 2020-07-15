@@ -97,6 +97,6 @@ E o resultado obtido:
 
 Nesse tutorial podemos mapear facilmente os outliers. É muito importante conhecer as características dos principais algortimos utilizados pelos Cientistas de Dados. Saber tirar proveitos das suas vantagens irá facilitar no processo de descoberta de conhecimento em diferentes bases de dados.
 
-Esse exemplo com DBScan podem ser aplicado a outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila">GitHub</a>
+Esse exemplo com DBScan podem ser aplicado a outras bases disponibilizadas na Internet, bastando fazer alguns ajustes quando necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.
