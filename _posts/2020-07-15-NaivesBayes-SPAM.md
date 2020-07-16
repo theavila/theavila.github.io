@@ -2,7 +2,7 @@
 layout: tutorial
 comments: true
 title: Classificador Probabilístico com o Algoritmo Naïve Bayes
-subtitle: "Classificação de SPAM"
+subtitle: "Classificação de E-mails como SPAM ou HAM"
 lang: pt
 date: 2020-07-15
 true-dt: 2020-07-15
@@ -20,7 +20,7 @@ header-img: "img/spam.png"
 
 ## Características do Algoritmo Naïve Bayes <a name="modelo"></a>
 
-O modelo probabilístico conhecido como Teorema de Bayes ou simplesmente chamado de Algoritmo de Naïves Bayes na área de Ciência de Dados. O Teorema de Bayes foi desenvolvido por Thomas Bayes, um pastor presbiteriano e matemático inglês que foi membro da Royal Society. O Pastor Bayes desenvolveu o algoritmo com o objetivo de tentar provar a existência de Deus. Embora não tenha provado a existência de Deus, o teorema de Bayes se mostrou útil de outras maneiras. (Obs.: A minha fé crê na existência de Deus muito mais que no acaso evolutivo uma sopa primordial. Cientistas de plantão que me perdoem, mas a criação não anula a evolução e vice-versa.)
+O modelo probabilístico conhecido como Teorema de Bayes ou simplesmente chamado de Algoritmo de Naïves Bayes e um dos mais utilizados na área de Ciência de Dados. O Teorema de Bayes foi desenvolvido por Thomas Bayes, um pastor presbiteriano e matemático inglês que foi membro da Royal Society. O Pastor Bayes desenvolveu o algoritmo com o objetivo de tentar provar a existência de Deus. Embora não tenha provado a existência de Deus, o Teorema de Bayes se mostrou útil de outras maneiras. (Obs.: A minha fé crê na existência de Deus muito mais que no acaso evolutivo de uma sopa primordial. Cientistas de plantão que me perdoem, mas a criação não anula a evolução e vice-versa.)
  
 O Teorema de Bayes auxilia os cientistas e pesquisadores a avaliar a probabilidade de que algo seja verdade com base em novos dados. Por exemplo, os médicos podem usar o resultado de um exame de mamografia, que às vezes está errado, para avaliar se devem revisar a avaliação de que uma paciente tem câncer de mama ou não. A fórmula mostra que o grau de alteração depende da precisão do teste.
 
