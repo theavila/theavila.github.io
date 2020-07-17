@@ -1,8 +1,8 @@
 ---
 layout: tutorial
 comments: true
-title: Classificação de Vinhos
-subtitle: "Utilizando modelos de aprendizagem com Random Forest, Gradiente Descendente Estocástico e SVM"
+title: Classificação da Qualidade de Vinhos
+subtitle: "Utilizando Modelos de Aprendizagem com Random Forest, Gradiente Descendente Estocástico e SVM"
 lang: pt
 date: 2020-07-6
 true-dt: 2020-07-6

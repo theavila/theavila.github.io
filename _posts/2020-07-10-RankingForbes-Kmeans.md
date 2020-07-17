@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: Análise dos Esportistas mais Bem Pagos do Mundo
-subtitle: "Algoritmo K-Means utilizando o Ranking da Forbes de 2020"
+subtitle: "Algoritmo K-Means Utilizando o Ranking da Forbes de 2020"
 lang: pt
 date: 2020-07-10
 true-dt: 2020-07-10

@@ -2,7 +2,7 @@
 layout: tutorial
 comments: true
 title: Modelo Supervisionado Floresta Aleatória 
-subtitle: "Identificando sobreviventes no conjunto de dados do Titanic"
+subtitle: "Identificando Sobreviventes no Naufrágio do Titanic"
 lang: pt
 date: 2020-07-9
 true-dt: 2020-07-9

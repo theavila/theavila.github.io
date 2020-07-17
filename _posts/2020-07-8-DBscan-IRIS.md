@@ -2,7 +2,7 @@
 layout: tutorial
 comments: true
 title: Clusterização de Flores Iris Utilizando DBScan
-subtitle: "Identificando outliers com o algoritmo Density-Based Spatial Clustering of Applications with Noise (DBScan)"
+subtitle: "Identificando Outliers com o Algoritmo DBScan"
 lang: pt
 date: 2020-07-8
 true-dt: 2020-07-8

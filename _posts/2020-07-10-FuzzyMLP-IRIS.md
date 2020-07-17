@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 comments: true
-title: Lógica Nebulosa e Perceptron multicamadas 
+title: Lógica Nebulosa e Perceptron Multicamadas 
 subtitle: "Classificação de Flores Iris com Fuzzy Logic e MLP"
 lang: pt
 date: 2020-07-10
@@ -18,7 +18,7 @@ header-img: "img/fuzzy.png"
 2. [Criando o Modelo de Treinamento](#treino)
 3. [Considerações Finais](#fim)
 
-## Características dos Modelos Lógica Nebulosa e Perceptron multicamadas <a name="modelos"></a>
+## Características dos Modelos Lógica Nebulosa e Perceptron Multicamadas <a name="modelos"></a>
 
 O modelo conhecido por Lógica Nebulosa, Lógica Difusa ou Lógica Fuzzy é uma extensão da lógica boolena no qual um valor lógico difuso é um valor qualquer no intervalo de valores entre 0 e 1. Os modelos que utilizam a lógica Nebulosa permitem que estados indeterminados possam ser tratados por dispositivos de controle. Desse modo, é possível avaliar conceitos não-quantificáveis tais como:
 

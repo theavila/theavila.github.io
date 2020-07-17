@@ -2,7 +2,7 @@
 layout: tutorial
 comments: true
 title: Classificação de Flores do Tipo Iris
-subtitle: "Algoritmo Adaboost"
+subtitle: "Utilizando o Algoritmo Adaboost"
 lang: pt
 date: 2020-07-4
 true-dt: 2020-07-4

@@ -1,8 +1,8 @@
 ---
 layout: tutorial
 comments: true
-title: Compra de Veículo utilizando Árvore de Decisão
-subtitle: "Árvore de Decisão"
+title: Tomada de Decisão para a Compra de Veículo
+subtitle: "Utilizando Árvore de Decisão"
 lang: pt
 date: 2020-07-6
 true-dt: 2020-07-6

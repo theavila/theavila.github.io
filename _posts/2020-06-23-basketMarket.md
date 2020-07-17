@@ -2,7 +2,7 @@
 layout: tutorial
 comments: true
 title: Análise de Hábitos de Compras Utilizando Regras de Associação
-subtitle: "Algoritmo Apriori"
+subtitle: "Com Base no Algoritmo Apriori"
 lang: pt
 date: 2020-06-23
 true-dt: 2020-06-23
