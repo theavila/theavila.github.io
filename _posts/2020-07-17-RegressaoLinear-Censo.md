@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 comments: true
-title: Previção de Crescimento Populacional e da Expectativa de Vida
+title: Previsão de Crescimento Populacional e da Expectativa de Vida
 subtitle: "Utilizando Dados do Censo e Algoritmo de Regressão Linear"
 lang: pt
 date: 2020-07-17
@@ -56,7 +56,7 @@ df = pd.read_csv('censo.csv')
 df.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/headCenso.png" alt="Censo-head" style="width:40%"/>
+<img class="img-responsive center-block thumbnail" src="/img/headCenso.png" alt="Censo-head" style="width:30%"/>
 
 Os dados possuem apenas dois valores, com o Ano e População, no intervalo de 1960 até 2020. Vamos plotar um gráfico com esse conjunto de dados para visualizar melhor.
 
