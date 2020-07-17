@@ -56,7 +56,7 @@ df = pd.read_csv('censo.csv')
 df.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/headCenso.png" alt="Censo-head" style="width:70%"/>
+<img class="img-responsive center-block thumbnail" src="/img/headCenso.png" alt="Censo-head" style="width:40%"/>
 
 Os dados possuem apenas dois valores, com o Ano e População, no intervalo de 1960 até 2020. Vamos plotar um gráfico com esse conjunto de dados para visualizar melhor.
 
