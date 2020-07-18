@@ -55,7 +55,7 @@ df = pd.read_csv('seguro.csv')
 df.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/headSeguro.png" alt="Seguro-head" style="width:30%"/>
+<img class="img-responsive center-block thumbnail" src="/img/headSeguro.png" alt="Seguro-head" style="width:20%"/>
 
 Os dados possuem apenas duas variáveis, sendo uma a idade e a outra se a pessoa possui (valor 1) ou não possui (valor 0) um seguro de vida.
 
