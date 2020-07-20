@@ -9,7 +9,7 @@ true-dt: 2020-07-20
 tags: [Tutorial,python,Jupyter]
 author: "Ricardo Avila"
 comments: true
-header-img: "img/seguro.png"
+header-img: "img/laranjamaca.png"
 ---
 
 ## Conteúdo
@@ -63,7 +63,7 @@ fruits = pd.read_csv('applesOranges.csv')
 fruits.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/svmHead.png" alt="SVM-head" style="width:45%"/>
+<img class="img-responsive center-block thumbnail" src="/img/svmHead.png" alt="SVM-head" style="width:20%"/>
 
 Os dados possuem apenas três variáveis, Peso (Weight), Tamanho (Size) e Classe (laranja ou maça). Vamos plotar uma figura para visualizar os objetos do conjunto de dados.
 
