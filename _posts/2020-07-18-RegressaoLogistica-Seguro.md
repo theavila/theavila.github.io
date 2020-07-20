@@ -16,7 +16,7 @@ header-img: "img/seguro.png"
 
 0. [Características do Algoritmo de Regressão Logística](#modelo)
 1. [Conjunto de Dados](#dados)
-2. [Criando o Modelo de Regressão Linear](#modelo)
+2. [Criando o Modelo de Regressão Logística](#modelo)
 3. [Considerações Finais](#fim)
 
 ## Características do Algoritmo de Regressão Logística <a name="modelo"></a>
@@ -61,7 +61,7 @@ Os dados possuem apenas duas variáveis, sendo uma a idade e a outra se a pessoa
 
 O próximo passo é a construção do nosso modelo de Regressão Logística.
 
-## Criando o Modelo de Regressão Linear <a name="modelo"></a>
+## Criando o Modelo de Regressão Logística <a name="modelo"></a>
 
 Utilizando as variáveis selecionadas, iremos treinar o modelo:
 
