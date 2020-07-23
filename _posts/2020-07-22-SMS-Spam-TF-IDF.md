@@ -29,11 +29,11 @@ description: Estudo com a análise de um conjunto de dados de SMS no qual foi ap
 
 O TF-IDF (Term Frequency – Inverse Document Frequency) é um método estatístico utilizado para medir quais são as palavras mais importantes dentro de um tópico. Para descobrir a relevância dessa palavras em relação ap conjunto total (corpus), o algoritmo analisa a frequência com que essa palavra aparece no documento, comparando o resultado com a quantidade de vezes que ocorre em outro documento.
 
-A <strong>frequência do termo (TF)</strong> serve para verificar quantas vezes uma palavra aparece em um documento. Ou seja, quanto maior for a frequência no documento, maior será a importância da palavra. Enquanto a <strong>frequência inversa dos documentos (IDF)<strong> verifica quantas vezes a palavra aparece em todos os documentos da coleção. Desse modo, quanto maior for a frequência nos documentos, menor será a importância da palavra.
+A <strong>frequência do termo (TF)</strong> serve para verificar quantas vezes uma palavra aparece em um documento. Ou seja, quanto maior for a frequência no documento, maior será a importância da palavra. Enquanto a <strong>frequência inversa dos documentos (IDF)</strong> verifica quantas vezes a palavra aparece em todos os documentos da coleção. Desse modo, quanto maior for a frequência nos documentos, menor será a importância da palavra.
 
 O algoritmo utiliza uma razão inversa para calcular a frequência destes termos. Observe o algoritmo:
 
-{\displaystyle \mathrm {tfidf} (t,d,D)=\mathrm {tf} (t,d)\cdot \mathrm {idf} (t,D)} $$
+<img class="img-responsive center-block thumbnail" src="/img/algoritmo-tf-idf.png" alt="algoritmo-tf-idf" style="width:25%"/>
 
 Para esse exemplo, primeiramente iremos importar as bibliotecas básicas que serão utilizadas nesse exemplo.
 
