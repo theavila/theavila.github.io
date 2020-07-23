@@ -33,7 +33,7 @@ A <strong>frequência do termo (TF)</strong> serve para verificar quantas vezes 
 
 O algoritmo utiliza uma razão inversa para calcular a frequência destes termos. Observe o algoritmo:
 
-<img class="img-responsive center-block thumbnail" src="/img/algoritmo-tf-idf.png" alt="algoritmo-tf-idf" style="width:25%"/>
+<img class="img-responsive center-block thumbnail" src="/img/algoritmo-tf-idf.png" alt="algoritmo-tf-idf" style="width:55%"/>
 
 Para esse exemplo, primeiramente iremos importar as bibliotecas básicas que serão utilizadas nesse exemplo.
 
