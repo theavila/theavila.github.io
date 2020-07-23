@@ -31,9 +31,9 @@ O TF-IDF (Term Frequency – Inverse Document Frequency) é um método estatíst
 
 A <strong>frequência do termo (TF)</strong> serve para verificar quantas vezes uma palavra aparece em um documento. Ou seja, quanto maior for a frequência no documento, maior será a importância da palavra. Enquanto a <strong>frequência inversa dos documentos (IDF)<strong> verifica quantas vezes a palavra aparece em todos os documentos da coleção. Desse modo, quanto maior for a frequência nos documentos, menor será a importância da palavra.
 
-    TF(t) = \frac{nº\ de\ vezes\ que\ t\ aparece\ no\ texto}{total\ de\ termos\ no\ texto}
-    
-    IDF(t) = log_e(\frac{quantidade\ total\ de\ textos}{numero\ de\ textos\ em\ que\ t\ aparece})
+O algoritmo utiliza uma razão inversa para calcular a frequência destes termos. Observe o algoritmo:
+
+{\displaystyle \mathrm {tfidf} (t,d,D)=\mathrm {tf} (t,d)\cdot \mathrm {idf} (t,D)} $$
 
 Para esse exemplo, primeiramente iremos importar as bibliotecas básicas que serão utilizadas nesse exemplo.
 
@@ -110,7 +110,7 @@ Primeiro, vamos descrever o conjunto de dados.
 sms.describe()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/describeTF-IDF.png" alt="describe-TF-IDF-sms" style="width:85%"/>
+<img class="img-responsive center-block thumbnail" src="/img/describeTF-IDF.png" alt="describe-TF-IDF-sms" style="width:35%"/>
 
 Vamos aplicar a função <strong>group by</strong> para utilizar a descrição dos rótulos e iniciar a separação das mensagens classificadas como SPAM.
 
@@ -129,7 +129,7 @@ sms['tamanho'] = sms['texto'].apply(len)
 sms.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/countTF-IDF.png" alt="count-TF-IDF-SMS" style="width:90%"/>
+<img class="img-responsive center-block thumbnail" src="/img/countTF-IDF.png" alt="count-TF-IDF-SMS" style="width:40%"/>
 
 Vamos visualizar um histograma com o tamanho do texto das mensagens para termos uma melhor compreensão da distribuição do conjunto de dados.
 
