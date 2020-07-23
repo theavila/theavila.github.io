@@ -10,7 +10,7 @@ tags: [Post]
 author: "Ricardo Avila"
 comments: true
 header-img: /img/spam-sms.png
-thumbnail: /img/plotCluster.png
+thumbnail: /img/histogramaTF-IDF.png
 modal-id: 10
 description: Estudo com a análise de um conjunto de dados de SMS no qual foi aplicado o modelo estatístico TF-IDF para identificar mensagens de SPAM.
 ---
