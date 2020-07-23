@@ -129,7 +129,7 @@ sms['tamanho'] = sms['texto'].apply(len)
 sms.head()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/countTF-IDF.png" alt="count-TF-IDF-SMS" style="width:40%"/>
+<img class="img-responsive center-block thumbnail" src="/img/countTF-IDF.png" alt="count-TF-IDF-SMS" style="width:65%"/>
 
 Vamos visualizar um histograma com o tamanho do texto das mensagens para termos uma melhor compreensão da distribuição do conjunto de dados.
 
@@ -137,7 +137,7 @@ Vamos visualizar um histograma com o tamanho do texto das mensagens para termos 
 sms['tamanho'].plot(bins=50, kind='hist') 
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/histogramaTF-IDF.png" alt="histograma-TF-IDF-SMS" style="width:90%"/>
+<img class="img-responsive center-block thumbnail" src="/img/histogramaTF-IDF.png" alt="histograma-TF-IDF-SMS" style="width:70%"/>
 
 De acordo com o histograma, é possível verificar que existem algumas mensagens longas. O ajuste de <strong>bin<strong> pode ser um recurso útil para filtrar as mensagens.
 
@@ -305,26 +305,6 @@ A vetorização será realizada em 3 etapas, utilizando o modelo <strong>bag-of-
 Cada vetor terá tantas dimensões quanto houver palavras exclusivas no corpus de mensagens SMS. Primeiro, usaremos a função <strong>CountVectorizer</strong> das biblioteca Scikit-learn. Este modelo converterá uma coleção de documentos de texto em uma matriz de contagens de tokens.
 
 Podemos imaginar isso como uma matriz bidimensional, onde a 1ª dimensão é o vocabulário inteiro (1 linha por palavra) e a 2ª dimensão são os documentos reais, nesse caso, uma coluna por mensagem de texto.
-
-Por exemplo:
-
-<table border = “1“>
-<tr>
-<th></th> <th>SMS 1</th> <th>SMS 2</th> <th>...</th> <th>SMS N</th> 
-</tr>
-<tr>
-<td><b>Palavra 1 contagem</b></td><td>0</td><td>1</td><td>...</td><td>0</td>
-</tr>
-<tr>
-<td><b>Palavra 2 contagem</b></td><td>0</td><td>0</td><td>...</td><td>0</td>
-</tr>
-<tr>
-<td><b>...</b></td> <td>1</td><td>2</td><td>...</td><td>0</td>
-</tr>
-<tr>
-<td><b>Palavra N contagem</b></td> <td>0</td><td>1</td><td>...</td><td>1</td>
-</tr>
-</table>
 
 Como existem muitas mensagens, podemos esperar muitas contagens zero para a presença de palavras nesses documentos. Por isso, o Scikit-learn produzirá uma matriz esparsa.
 
@@ -652,7 +632,7 @@ plot_classification_report(predictions,label_test)
 
 E o gráfico gerado ficou de acordo com o esperado.
 
-<img class="img-responsive center-block thumbnail" src="/img/matrizconfusaoTF-IDF.png" alt="matrizconfusao-TF-IDF" style="width:70%"/>
+<img class="img-responsive center-block thumbnail" src="/img/matrizconfusaoTF-IDF.png" alt="matrizconfusao-TF-IDF" style="width:40%"/>
 
 A próxima parte da análise requer um pouco de intuição, uma vez que precisamos interpretar a matriz de confusão. Os resultados para a classificação de mensagens do tipo HAM, ou seja, mensagens consideradas válidas está excelente, com 100% de precisão, 95% de recall e f1-score com 98%. Já no caso do SPAM a taxa de precisão é de 71%. Por que isso acontece? Bom, de certo modo se deve pela quantidade de mensagens da classe SPAM. Como vimos na Análise Exploratória dos Dados, correspondem a 13% do total. Por essa razão, a precisão pode ter tido essa classificação baixa com o nosso modelo. Por outro lado, o recall ficou com 100%, o que é execelente, ou seja, obteve a revocabilidade máxima (sem falsos negativos).
 
