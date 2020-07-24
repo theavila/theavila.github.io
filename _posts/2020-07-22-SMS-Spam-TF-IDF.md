@@ -35,7 +35,7 @@ O algoritmo utiliza uma razão inversa para calcular a frequência destes termos
 
 <img class="img-responsive center-block thumbnail" src="/img/algoritmo-tf-idf.png" alt="algoritmo-tf-idf" style="width:75%"/>
 
-Para esse exemplo, primeiramente iremos importar as bibliotecas básicas que serão utilizadas nesse exemplo.
+Para esse exemplo, primeiramente iremos importar as bibliotecas básicas que serão utilizadas.
 
 {% highlight python %}
 import pandas as pd
