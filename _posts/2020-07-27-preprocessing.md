@@ -211,10 +211,10 @@ paises_dist[cols] = paises[cols].apply(scale)
 
 <img class="img-responsive center-block thumbnail" src="/img/padronizacao-norm.png" alt="padronizacao-normalizacao" style="width:35%"/>
 
+Existem várias outras maneiras de normalizar os dados, sendo todas úteis em casos específicos. Você pode ler mais sobre eles na documentação oficial <a href="https://scikit-learn.org/stable/modules/preprocessing.html#normalization">aqui</a>.
+
 ## Considerações Finais <a name="fim"></a>
 
-O KNN explora a ideia de <strong>lazy learning</strong>, uma vez que o algoritmo não constrói um modelo até o instante em que uma predição é necessária. O KNN tem como desvantagem o fato de que todos os dados de treinamento precisam ser armazenados e consultados para se identificar os vizinhos mais próximos. Mesmo assim, o KNN é um dos mais simples modelos de aprendizagem de máquina para se implementar, tendo uma boa precisão na maioria dos casos aplicados. Além disso, o tempo para se efetuar treinamento dos dados também é diferenciado, sendo um dos mais rápidos para esta atividade.
-
-Utilize esse exemplo para criar outros modelos de aprendizagem de máquina utilizando outras bases disponibilizadas na Internet. Para isso, basta efetuasr alguns ajustes quando for necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
+Conforme apresentado, todas essas técnicas melhorarão suas habilidades gerais como Cientista de Dados e o resultado dos modelos de aprendizado de máquina. Utilize esse exemplo para criar outros modelos de aprendizagem de máquina utilizando outras bases disponibilizadas na Internet. Para isso, basta efetuasr alguns ajustes quando for necessário. Todo o código e mais um pouco está disponível no meu <a href="https://github.com/theavila/tutoriaisML">GitHub</a>.
 
 Os passos de execução deste tutorial foram testados com `Python 3.6` e tudo ocorreu sem problemas. No entanto, é possível que alguém encontre alguma dificuldade ou erro no meio do caminho. Se for o caso, por favor comente a sua dificuldade ou erro neste post.
