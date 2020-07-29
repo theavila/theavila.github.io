@@ -95,7 +95,7 @@ df = pd.read_csv('preprocessing.csv')
 df.isna().sum()
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/pre-isna.png" alt="valores ausentes" style="width:25%"/>
+<img class="img-responsive center-block thumbnail" src="/img/pre-isna.png" alt="valores ausentes" style="width:20%"/>
 
 Como por ser visto, existem dois valores ausentes em quatra colunas. Uma abordagem que pode ser aplicada para preencher os valores ausentes é preenchê-lo com a média da coluna. Por exemplo, podemos preencher o valor ausente da coluna <strong>final</strong> por uma média de todos os alunos da coluna.
 
@@ -116,7 +116,7 @@ X = pd.DataFrame(X, columns=df.columns)
 print(X)
 {% endhighlight %}
 
-<img class="img-responsive center-block thumbnail" src="/img/fit-transform.png" alt="transformacao" style="width:65%"/>
+<img class="img-responsive center-block thumbnail" src="/img/fit-transform.png" alt="transformacao" style="width:75%"/>
 
 Como pode ser verificado, os valores ausentes foram preenchidos com a respectiva média de cada coluna. A função <strong>SimpleImputer</strong> também pode ser utilizada para preeencher outras medidas de centralidade, como moda, mediana, máximo, etc.
 
