@@ -56,7 +56,7 @@ As etapas de pré-processamento dos dados mais comuns são:
 
 6. <strong>Sumarização de dados</strong> - Processo para reduziz os dados coletando e substituí-los por conceitos de baixo nível. Por exemplo, sumarizar valores numéricos para o atributo idade por conceitos de nível superior (como jovens, adulto, meia-idade ou sênior).
 
-Nesse tutorial iremos mostrar quatro tipos de pré-processamento de dados utilizando Python com as bibliotecas Pandas e Scikit-learn:
+Nesse tutorial, iremos mostrar quatro tipos de pré-processamento de dados utilizando Python com as bibliotecas Pandas, Numpy e Scikit-learn:
 
 * Dividindo os conjuntos de dados de Treinamento e Validação
 * Tratando dos valores ausentes
@@ -80,52 +80,136 @@ Aqui passamos X e y como argumentos em <strong>train_test_split</strong>, que di
 
 ## Tratando dos valores ausentes <a name="ausentes"></a>
 
-De posse dos dados, vamos treinar o modelo de aprendizagem:
+Os valores ausentes (também chamado de lixo) devem ser removidos ou tratados nos conjuntos de dados. Se o conjunto de dados estiver cheio de NaNs e valores considerados como lixo, certamente o modelo também executará esse lixo. Portanto, antes de criar o modelo de Aprendizagem de Máquina é importante tratar esses valores ausentes.
+
+Para esse tutorial, iremos utilizar um conjunto de dados fictícios para ver como podemos tratar os valores ausentes. O dados pode ser obtidos <a href="https://github.com/theavila/tutoriaisML/blob/master/preprocessing.csv">aqui</a>.
+
+Primeiro, vamos verificar os valores ausentes no conjunto de dados.
 
 {% highlight python %}
-clf = neighbors.KNeighborsClassifier()
-clf.fit(X_train, y_train)
-print(clf.score(X_test, y_test))
+import pandas as pd
+import numpy as np 
+import sklearn
+
+df = pd.read_csv('preprocessing.csv')
+df.isna().sum()
 {% endhighlight %}
 
-E a saída obtida foi:
+<img class="img-responsive center-block thumbnail" src="/img/pre-isna.png" alt="valores ausentes" style="width:45%"/>
 
-```
-0.9666666666666667
-```
+Como por ser visto, existem dois valores ausentes em quatra colunas. Uma abordagem que pode ser aplicada para preencher os valores ausentes é preenchê-lo com a média da coluna. Por exemplo, podemos preencher o valor ausente da coluna <strong>final</strong> por uma média de todos os alunos da coluna.
+
+Para fazer isso, podemos usar a função <strong>SimpleImputer</strong> em <strong>sklearn.impute</strong>.
+
+{% highlight python %}
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(fill_value=np.nan, strategy='mean')
+X = imputer.fit_transform(df)
+{% endhighlight %}
+
+Isso preencherá todos os valores ausentes utilizando a média da coluna. Usamos a função <strong>fit_transform</strong> para fazer isso.
+
+Como a função retorna uma matriz <strong>Numpy</strong>, para lê-la, podemos convertê-la novamente no DataFrame.
+
+{% highlight python %}
+X = pd.DataFrame(X, columns=df.columns)
+print(X)
+{% endhighlight %}
+
+<img class="img-responsive center-block thumbnail" src="/img/fit-transform.png" alt="transformacao" style="width:35%"/>
+
+Como pode ser verificado, os valores ausentes foram preenchidos com a respectiva média de cada coluna. A função <strong>SimpleImputer</strong> também pode ser utilizada para preeencher outras medidas de centralidade, como moda, mediana, máximo, etc.
+
+Se o número de linhas com valores ausentes for pequeno ou se os dados estiverem dispostos em uma ordem que não seja aconselhável preencher os valores ausentes, uma outra estatégia pode ser eliminar as linhas ausentes utilizando a função <strong>dropna</strong> do <strong>Pandas</strong>.
+
+{% highlight python %}
+dropedDf = df.dropna()
+{% endhighlight %}
+
+Desse modo, foram descartadas todas as linhas nulas do conjunto de dados e as armazenamos em outro DataFrame.
+
+{% highlight python %}
+dropedDf.isna().sum()
+{% endhighlight %}
+
+Agora temos zero linhas nulas ou com valores faltantes. 
 
 ## Tratando dos recursos categóricos <a name="categoricos"></a>
 
-De posse dos dados, vamos treinar o modelo de aprendizagem:
+Podemos tratar dos recursos categóricos convertendo-os em números inteiros.
+
+Utilizando <strong>LabelEncoder</strong>, podemos converter os valores categóricos em rótulos numéricos. Para esse exemplo, utilizaremos <a href="https://github.com/theavila/tutoriaisML/blob/master/preprocessingPaises.csv">esse</a> conjunto de dados:
 
 {% highlight python %}
-clf = neighbors.KNeighborsClassifier()
-clf.fit(X_train, y_train)
-print(clf.score(X_test, y_test))
+paises = pd.read_csv('preprocessingPaises.csv')
 {% endhighlight %}
 
-E a saída obtida foi:
+<img class="img-responsive center-block thumbnail" src="/img/labelencoderPre.png" alt="labelencoder-Pre" style="width:35%"/>
 
-```
-0.9666666666666667
-```
+Utilizando o codificador de etiquetas na coluna <strong>país</strong> iremos converter a China em 2, a Índia em 4, os EUA em 3 e assim por diante. Vamos codificar.
+
+{% highlight python %}
+from sklearn.preprocessing import LabelEncoder
+
+l1 = LabelEncoder()
+l1.fit(paises['pais'])
+paises.pais = l1.transform(paises.pais)
+
+print(paises)
+{% endhighlight %}
+
+<img class="img-responsive center-block thumbnail" src="/img/labelencoderFeito.png" alt="labelencoder-Feito" style="width:35%"/>
+
+Essa técnica tem uma desvantagem: por ordenar as etiquetas alfabeticamente, dará prioridade a Rússia devido ao rótulo ser alto (9) e a Bangladesh a menor prioridade pelo rótulo ser baixo (0), mas ainda assim, ajudará muitas vezes. 
 
 ## Normalização de dados <a name="normalizacao"></a>
 
-De posse dos dados, vamos treinar o modelo de aprendizagem:
+A normalização de dados é uma das técnicas mais utlizadas em Aprendizagem de Máquina. Foi provado, por meio de experimentos, que os modelos de Aprendizagem de Máquina têm um desempenho muito melhor em um conjunto de dados normalizado em comparação ao mesmo conjunto de dados que não foi normalizado. O desempenho pode ser tanto em tempo de execução (custo computacional) e até mesmo o resultado de precisão.
+
+O objetivo da normalização é alterar valores para uma escala comum sem distorcer a diferença entre o intervalo de valores.
+
+<img class="img-responsive center-block thumbnail" src="/img/normalizaoFormula.png" alt="normalizao-Formula" style="width:35%"/>
+
+De acordo com a documentação oficial do Scikit-learn, a normalização é o <em>“processo de dimensionar amostras individuais para obter uma norma de unidade. Esse processo pode ser útil se for utilizar em seu modelo uma forma quadrática, como produto escalar ou qualquer outro núcleo, para quantificar a semelhança de qualquer par de amostras”</em>.
+
+O processo para normalizar utilizando o Scikit-learn é muito simples e nesse exemplo iremos criar dois códigos.
 
 {% highlight python %}
-clf = neighbors.KNeighborsClassifier()
-clf.fit(X_train, y_train)
-print(clf.score(X_test, y_test))
+from sklearn.preprocessing import minmax_scale
+from sklearn.preprocessing import scale
+
+paises = pd.read_csv('preprocessingPaises.csv')
 {% endhighlight %}
 
-E a saída obtida foi:
+Primeiro, iremos obter os nomes das colunas do DataFrame como uma lista.
 
-```
-0.9666666666666667
-```
+{% highlight python %}
+cols = list(paises.columns)
+{% endhighlight %}
 
+Em seguida, remover a coluna <strong>país</strong> que não será normaliza.
+
+{% highlight python %}
+cols.remove('pais')
+{% endhighlight %}
+
+Agora, podemos copiar os dados e aplicar a normalização por reescala nas colunas do DataFrame que contém valores contínuos. Por padrão, o método <strong>minmax_scale</strong> reescala com min=0 e max=1.
+
+{% highlight python %}
+paises_amp = paises.copy()
+paises_amp[cols] = paises[cols].apply(minmax_scale)
+{% endhighlight %}
+
+<img class="img-responsive center-block thumbnail" src="/img/reescala-norm.png" alt="reescala-normalizacao" style="width:35%"/>
+
+Finalmente, podemos copiar os dados e aplicar a normalização por padronização a todas as colunas do DataFrame. Por padrão, o método <strong>scale</strong> subtrai a média e divide pelo desvio-padrão.
+
+{% highlight python %}
+paises_dist = paises.copy()
+paises_dist[cols] = paises[cols].apply(scale)
+{% endhighlight %}
+
+<img class="img-responsive center-block thumbnail" src="/img/padronizacao-norm.png" alt="padronizacao-normalizacao" style="width:35%"/>
 
 ## Considerações Finais <a name="fim"></a>
 
