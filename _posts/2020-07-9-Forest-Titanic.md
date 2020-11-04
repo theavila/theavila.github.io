@@ -22,7 +22,7 @@ header-img: "img/titanic.png"
 
 A floresta aleatória é um modelo de aprendizagem supervisionado baseado em árvores de decisão. As árvores de decisão são maneiras extremamente intuitivas de classificar ou rotular objetos: você simplesmente faz uma série de perguntas projetadas para se concentrar na classificação.
 
-No caso da Floresta Aleatória, são montadas vários conjuntos de regras, no qual um novo valor passará por uma série de perguntas, os chamados ramos da árvore, para prever qual é a melhor resposta. Essa é a arquitetura de funcionamento do modelo Floresta Aleatória, no qual os dados são separados aleatoriamente em várias partes e é criada uma árvore para cada uma dessas partes para selecionar a decisão com com a resposta mais votada.
+No caso da Floresta Aleatória, são montadas vários conjuntos de regras, no qual um novo valor passará por uma série de perguntas, os chamados ramos da árvore, para prever qual é a melhor resposta. Essa é a arquitetura de funcionamento do modelo Floresta Aleatória, no qual os dados são separados aleatoriamente em várias partes e é criada uma árvore para cada uma dessas partes para selecionar a decisão com a resposta mais votada.
 
 A vantagem da Floresta Aleatória é poder ser utilizada para problemas de classificação e regressão. Com poucas exceções, o modelo Floresta Aleatória tem todos os hiperparâmetros de um classificador de uma árvore de decisão e também todos os hiperparâmetros de um classificador de ensacamento, para controlar o conjunto em si. O método de ensacamento consiste em uma combinação de modelos de aprendizagem que aumenta o resultado geral a cada iteração.
 
